@@ -54,6 +54,7 @@ delivered.
   ADR-0000 (the same system as Glink). The PR links the ADR instead of
   restating it. Read `docs/adr/README.md` before starting work: code that
   contradicts an accepted ADR is a defect.
+- **No AI attribution in commits, PRs, issues or comments.** See `skill-pr`.
 - Reply in the user's language. Project artifacts follow `skill-content`.
 
 ## Decision Gates
@@ -83,7 +84,7 @@ delivered.
 4. Implement in small slices. After each one: `npm run build`.
 5. For visible changes, start the `dev` entry from `.claude/launch.json` with
    `preview_start`, read the console and network for errors, and check EN and ES.
-6. Commit with Conventional Commits and no AI attribution.
+6. Commit with Conventional Commits and no AI attribution (`skill-pr`).
 7. Close an issue only when every closure criterion is verified, and state
    explicitly what was not verified.
 
