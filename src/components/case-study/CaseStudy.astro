@@ -27,22 +27,24 @@ const headingId = `${id}-title`;
 
 <Section id={id} labelledby={headingId} tone={tone}>
   <Glow slot="background" class="-left-40 top-1/3 bg-brand-base/10" />
-  <div class="mb-12 max-w-3xl">
-    <Eyebrow>{copy.eyebrow}</Eyebrow>
-    <SectionHeading id={headingId} accent={false}>{copy.title}</SectionHeading>
-    <p class="m-0 text-lg text-zinc-300">{copy.intro}</p>
-    <Button href={study.url} variant="secondary" icon="external" external class="mt-8">{copy.linkLabel}</Button>
-  </div>
+  <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+    <div class="mb-12 max-w-3xl">
+      <Eyebrow>{copy.eyebrow}</Eyebrow>
+      <SectionHeading id={headingId} accent={false}>{copy.title}</SectionHeading>
+      <p class="m-0 text-lg text-zinc-300">{copy.intro}</p>
+      <Button href={study.url} variant="secondary" icon="external" external class="mt-8">{copy.linkLabel}</Button>
+    </div>
 
-  <DeviceShowcase
-    host={new URL(study.url).host}
-    desktop={study.screenshots.desktop}
-    mobile={study.screenshots.mobile}
-    desktopAlt={copy.images.desktop}
-    mobileAlt={copy.images.mobile}
-    href={study.url}
-    linkLabel={copy.linkLabel}
-  />
+    <DeviceShowcase
+      host={new URL(study.url).host}
+      desktop={study.screenshots.desktop}
+      mobile={study.screenshots.mobile}
+      desktopAlt={copy.images.desktop}
+      mobileAlt={copy.images.mobile}
+      href={study.url}
+      linkLabel={copy.linkLabel}
+    />
+  </div>
 
   <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
     <Card interactive>

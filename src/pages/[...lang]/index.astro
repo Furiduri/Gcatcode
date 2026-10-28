@@ -5,7 +5,6 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import CaseStudy from "../../components/case-study/CaseStudy.astro";
-import AboutSection from "../../components/landing/AboutSection.astro";
 import FaqSection from "../../components/landing/FaqSection.astro";
 import FinalCtaSection from "../../components/landing/FinalCtaSection.astro";
 import FreeCallSection from "../../components/landing/FreeCallSection.astro";
@@ -14,6 +13,7 @@ import MethodSection from "../../components/landing/MethodSection.astro";
 import ProblemSection from "../../components/landing/ProblemSection.astro";
 import ServicesSection from "../../components/landing/ServicesSection.astro";
 import TrustSection from "../../components/landing/TrustSection.astro";
+import WebsitesSection from "../../components/landing/WebsitesSection.astro";
 import PhotoCredits from "../../components/ui/PhotoCredits.astro";
 import { business, businessPlaceholders, mailtoUrl, whatsappUrl } from "../../data/business";
 import { caseStudies } from "../../data/caseStudies";
@@ -41,9 +41,9 @@ const links = {
   whatsapp: whatsappUrl(l.whatsappMessages.general),
   freeCall: whatsappUrl(l.whatsappMessages.freeCall),
   advisory: whatsappUrl(l.whatsappMessages.advisory),
+  website: whatsappUrl(l.whatsappMessages.website),
   terms: getLocalizedUrl(lang, "terminos"),
   privacy: getLocalizedUrl(lang, "privacidad"),
-  cv: getLocalizedUrl(lang, "cv"),
 };
 const photoAuthors = Object.values(landingPhotos).map((photo) => ({ name: photo.author, url: photo.authorUrl }));
 ---
@@ -74,7 +74,13 @@ const photoAuthors = Object.values(landingPhotos).map((photo) => ({ name: photo.
       study={caseStudies.creepyBoardDay}
     />
     <TrustSection copy={l.trust} privacyHref={links.privacy} termsHref={links.terms} />
-    <AboutSection id="about" copy={l.about} avatarSrc="/favicon.svg" cvHref={links.cv} />
+    <WebsitesSection
+      id="websites"
+      copy={l.websites}
+      quoteHref={links.website}
+      termsHref={links.terms}
+      newTabLabel={l.newTabNote}
+    />
     <FreeCallSection
       id="free-call"
       copy={l.freeCall}

@@ -64,14 +64,14 @@ export interface Dictionary {
     services: string;
     method: string;
     caseStudy: string;
-    about: string;
+    websites: string;
     faq: string;
     contactCta: string;
   };
   // GCatcode sales landing. Strings may use the business `{placeholders}`
   // from src/data/business.ts and `{years}`.
   landing: {
-    whatsappMessages: { general: string; freeCall: string; advisory: string };
+    whatsappMessages: { general: string; freeCall: string; advisory: string; website: string };
     newTabNote: string;
     hero: {
       eyebrow: string;
@@ -100,13 +100,20 @@ export interface Dictionary {
       review: TitledText;
       warranty: TitledText & { linkLabel: string };
     };
-    about: {
+    websites: {
       title: string;
-      avatarAlt: string;
       intro: string;
-      missionLabel: string;
-      mission: string;
-      cvLink: string;
+      card: {
+        title: string;
+        pricePrefix: string;
+        price: string;
+        taxNote: string;
+        includesLabel: string;
+        includes: string[];
+        notes: string[];
+        termsLink: string;
+        cta: string;
+      };
     };
     freeCall: {
       title: string;
