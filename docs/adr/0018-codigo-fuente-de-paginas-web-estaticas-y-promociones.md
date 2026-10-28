@@ -1,6 +1,6 @@
 # ADR-0018: Código fuente de las páginas web estáticas y de los proyectos con promoción
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-28
 - **Supera a:** [ADR-0016](0016-codigo-fuente-de-paginas-web-estaticas.md)
 

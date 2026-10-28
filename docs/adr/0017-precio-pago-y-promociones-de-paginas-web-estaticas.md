@@ -1,6 +1,6 @@
 # ADR-0017: Precio, pago y promociones de las páginas web estáticas
 
-- **Estado:** Propuesta
+- **Estado:** Aceptada
 - **Fecha:** 2026-10-28
 - **Supera a:** [ADR-0015](0015-precio-y-pago-de-paginas-web-estaticas.md)
 
