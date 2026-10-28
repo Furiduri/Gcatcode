@@ -132,6 +132,7 @@ export interface Dictionary {
         freeCall: FaqItem;
         inPerson: FaqItem;
         advisoryPrice: FaqItem;
+        websitePrice: FaqItem;
         projectPayment: FaqItem;
         warranty: FaqItem;
         ai: FaqItem;

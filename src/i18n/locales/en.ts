@@ -188,7 +188,7 @@ export default {
       items: {
         web: {
           title: "Websites and web platforms",
-          text: "From a website that presents your business to platforms with an admin panel to manage your operations.",
+          text: "From a website that presents your business to platforms with an admin panel to manage your operations. Informational websites from ${staticFrom} MXN, VAT (IVA) included.",
         },
         mobile: {
           title: "Mobile apps",
@@ -284,6 +284,10 @@ export default {
         inPerson: {
           question: "Do you meet in person?",
           answer: "Yes, in Zapopan and Guadalajara, with no travel charge. In other locations, we quote the session with travel expenses included. We also meet online by video call.",
+        },
+        websitePrice: {
+          question: "How much does an informational website cost?",
+          answer: "From ${staticFrom} MXN, VAT (IVA) included, with a landing page, an “About” section, terms and conditions and a catalog of products or services, built for mobile and desktop, with basic SEO. Each additional page costs ${rate} MXN. It starts with a {staticDeposit}% deposit, and the balance is paid before publishing.",
         },
         advisoryPrice: {
           question: "How much does the advisory cost?",
@@ -413,7 +417,7 @@ export default {
               "Initial meeting: free, lasting up to {minutes} minutes, by video call or in person in Zapopan and Guadalajara, Jalisco.",
               "Advisory, training and technical support: from ${rate} MXN per hour, VAT (IVA) included, according to the scope described in the next section.",
               "Custom development: quoted per module, as described in the “Custom development” section.",
-              "Static websites: quoted per activity, as described in the “Static websites” section.",
+              "Static websites: from ${staticFrom} MXN, VAT (IVA) included; quoted per activity, as described in the “Static websites” section.",
             ],
           ],
         },

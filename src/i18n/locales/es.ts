@@ -188,7 +188,7 @@ export default {
       items: {
         web: {
           title: "Sitios y plataformas web",
-          text: "Desde un sitio que presente tu negocio hasta plataformas con panel de administración para gestionar tu operación.",
+          text: "Desde un sitio que presente tu negocio hasta plataformas con panel de administración para gestionar tu operación. Páginas web informativas desde ${staticFrom} MXN, IVA incluido.",
         },
         mobile: {
           title: "Aplicaciones móviles",
@@ -284,6 +284,10 @@ export default {
         inPerson: {
           question: "¿Atienden en persona?",
           answer: "Sí, en Zapopan y Guadalajara, sin costo de traslado. En otras localidades, cotizamos la sesión con los viáticos incluidos. También atendemos en línea por videollamada.",
+        },
+        websitePrice: {
+          question: "¿Cuánto cuesta una página web informativa?",
+          answer: "Desde ${staticFrom} MXN, IVA incluido, con landing page, sección «Acerca de», términos y condiciones y catálogo de productos o servicios, adaptada a celular y computadora, con SEO básico. Cada página adicional cuesta ${rate} MXN. Se inicia con un anticipo del {staticDeposit} % y el saldo se paga antes de publicar.",
         },
         advisoryPrice: {
           question: "¿Cuánto cuesta la asesoría?",
@@ -413,7 +417,7 @@ export default {
               "Cita inicial: gratuita, con una duración de hasta {minutes} minutos, por videollamada o presencial en Zapopan y Guadalajara, Jalisco.",
               "Asesoría, capacitación y soporte técnico: desde ${rate} MXN por hora, IVA incluido, según el alcance descrito en la sección siguiente.",
               "Desarrollo a la medida: se cotiza por módulo, según lo descrito en la sección «Desarrollo a la medida».",
-              "Páginas web estáticas: se cotizan por actividad, según lo descrito en la sección «Páginas web estáticas».",
+              "Páginas web estáticas: desde ${staticFrom} MXN, IVA incluido; se cotizan por actividad, según lo descrito en la sección «Páginas web estáticas».",
             ],
           ],
         },

@@ -26,6 +26,8 @@ export const business = {
   warrantyDays: 30,
   // Static websites (ADR-0015): first-project promotion and deposit; above
   // twice the minimum, the minimum deposit is enough.
+  // Real value of the basic static website package (14 hours at the hourly rate).
+  staticFromMxn: 7000,
   staticPromoMxn: 1500,
   staticDepositPercent: 50,
   staticMinDepositMxn: 1000,
@@ -72,6 +74,7 @@ export const businessPlaceholders = {
   cycleDays: business.cycleBusinessDays,
   cycleWeeks: business.cycleWeeks,
   warrantyDays: business.warrantyDays,
+  staticFrom: business.staticFromMxn.toLocaleString("en-US"),
   staticPromo: business.staticPromoMxn.toLocaleString("en-US"),
   staticDeposit: business.staticDepositPercent,
   staticMinDeposit: business.staticMinDepositMxn.toLocaleString("en-US"),
