@@ -287,7 +287,7 @@ export default {
         },
         websitePrice: {
           question: "How much does an informational website cost?",
-          answer: "From ${staticFrom} MXN, VAT (IVA) included, with a landing page, an “About” section, terms and conditions and a catalog of products or services, built for mobile and desktop, with basic SEO. Each additional page costs ${rate} MXN. It starts with a {staticDeposit}% deposit, and the balance is paid before publishing.",
+          answer: "From ${staticFrom} MXN, VAT (IVA) included, with a landing page, an “About” section, terms and conditions and a catalog of products or services, built for mobile and desktop, with basic SEO. Each additional page costs ${staticExtraPage} MXN. It starts with a {staticDeposit}% deposit, and the balance is paid before publishing.",
         },
         advisoryPrice: {
           question: "How much does the advisory cost?",
@@ -299,7 +299,7 @@ export default {
         },
         warranty: {
           question: "What does the warranty cover?",
-          answer: "During the {warrantyDays} days after each development module is delivered, we fix defects in what we delivered at no cost. It does not cover new features, scope changes, failures caused by third-party modifications or changes to third-party platforms.",
+          answer: "During the {warrantyDays} days after each development module or static website is delivered, we fix defects in what we delivered at no cost. It does not cover new features, scope changes, failures caused by third-party modifications or changes to third-party platforms.",
         },
         ai: {
           question: "Do you use AI with my data?",
@@ -509,12 +509,12 @@ export default {
             "Prices:",
             [
               "They are quoted per activity (analysis, design, development and testing) at the rate of ${rate} MXN per hour, VAT (IVA) included. Development includes basic SEO and the optimization of graphic assets.",
-              "Each additional informational page costs ${rate} MXN, VAT (IVA) included.",
+              "Each additional informational page costs ${staticExtraPage} MXN, VAT (IVA) included (one hour of analysis and one of development).",
               "Current promotions are governed by the “Promotions” section.",
             ],
             "Payments:",
             [
-              "The project starts with a deposit of {staticDeposit}% of the total. For projects over ${staticMinDepositFrom} MXN, the minimum deposit is ${staticMinDeposit} MXN, and you may pay more if you wish.",
+              "The project starts with a deposit of {staticDeposit}% of the total.",
               "The balance is paid before the site is published on your server.",
               "By paying the deposit, you accept the development and the prices in the quote.",
             ],
@@ -527,9 +527,10 @@ export default {
             ],
             "Source code:",
             [
-              "{brand} keeps the source code and its ownership. This lets us support you with future changes, which cost ${rate} MXN per hour, VAT (IVA) included.",
+              "{brand} keeps the source code and its ownership, unless you pay for its release. This lets us support you with future changes, which cost ${rate} MXN per hour, VAT (IVA) included.",
               "If you prefer to work with another provider, releasing the source code is quoted separately.",
             ],
+            "Pausing and cancelling are governed by the “Project pause and cancellation” section, treating the static website as a single module.",
           ],
         },
         {
@@ -537,7 +538,9 @@ export default {
           blocks: [
             "Promotions are not permanent. Each promotion states in its quote or its announcement who it is for, its validity period and its conditions.",
             [
-              "A promotion applies only to projects hired, by paying the deposit, during its validity period.",
+              "A promotion applies only to the people its quote is addressed to and to projects hired, by paying the deposit, during its validity period.",
+              "Promotions cannot be combined.",
+              "A promotion may set its own prices and its own deposit; if it does not, those in these terms apply.",
               "The quote shows the project's real value and the promotion's discount.",
               "Once the validity period ends, new projects are quoted at the prices in these terms.",
               "These terms apply to everything the promotion does not state.",
@@ -584,7 +587,7 @@ export default {
         {
           title: "Warranty",
           blocks: [
-            "Each custom development module carries a warranty of {warrantyDays} calendar days from its delivery.",
+            "Each custom development module and each static website carries a warranty of {warrantyDays} calendar days from its delivery.",
             [
               "Covers: free correction of defects in what was delivered.",
               "Does not cover: new features, scope changes, failures caused by modifications made by third parties, changes to third-party platforms or services, or modules delivered unfinished at your request.",

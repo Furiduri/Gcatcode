@@ -24,12 +24,11 @@ export const business = {
   cycleBusinessDays: 10,
   cycleWeeks: 2,
   warrantyDays: 30,
-  // Static websites (ADR-0017): starting price and deposit; above
-  // twice the minimum, the minimum deposit is enough.
-  // Real value of the basic static website package (14 hours at the hourly rate).
+  // Static websites (ADR-0017). staticFromMxn is the real value of the basic
+  // package (14 hours at the hourly rate); an extra page takes 2 hours.
   staticFromMxn: 7000,
+  staticExtraPageMxn: 1000,
   staticDepositPercent: 50,
-  staticMinDepositMxn: 1000,
   // Project pause and source retention (ADR-0010).
   pauseRetentionMonths: 6,
   cancellationRetentionMonths: 3,
@@ -75,6 +74,5 @@ export const businessPlaceholders = {
   warrantyDays: business.warrantyDays,
   staticFrom: business.staticFromMxn.toLocaleString("en-US"),
   staticDeposit: business.staticDepositPercent,
-  staticMinDeposit: business.staticMinDepositMxn.toLocaleString("en-US"),
-  staticMinDepositFrom: (business.staticMinDepositMxn * 2).toLocaleString("en-US"),
+  staticExtraPage: business.staticExtraPageMxn.toLocaleString("en-US"),
 } as const;

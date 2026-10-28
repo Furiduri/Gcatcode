@@ -287,7 +287,7 @@ export default {
         },
         websitePrice: {
           question: "¿Cuánto cuesta una página web informativa?",
-          answer: "Desde ${staticFrom} MXN, IVA incluido, con landing page, sección «Acerca de», términos y condiciones y catálogo de productos o servicios, adaptada a celular y computadora, con SEO básico. Cada página adicional cuesta ${rate} MXN. Se inicia con un anticipo del {staticDeposit} % y el saldo se paga antes de publicar.",
+          answer: "Desde ${staticFrom} MXN, IVA incluido, con landing page, sección «Acerca de», términos y condiciones y catálogo de productos o servicios, adaptada a celular y computadora, con SEO básico. Cada página adicional cuesta ${staticExtraPage} MXN. Se inicia con un anticipo del {staticDeposit} % y el saldo se paga antes de publicar.",
         },
         advisoryPrice: {
           question: "¿Cuánto cuesta la asesoría?",
@@ -299,7 +299,7 @@ export default {
         },
         warranty: {
           question: "¿Qué cubre la garantía?",
-          answer: "Durante los {warrantyDays} días siguientes a la entrega de cada módulo de desarrollo, corregimos sin costo los defectos en lo entregado. No cubre funciones nuevas, cambios de alcance, fallas causadas por modificaciones de terceros ni cambios en plataformas de terceros.",
+          answer: "Durante los {warrantyDays} días siguientes a la entrega de cada módulo de desarrollo o página web estática, corregimos sin costo los defectos en lo entregado. No cubre funciones nuevas, cambios de alcance, fallas causadas por modificaciones de terceros ni cambios en plataformas de terceros.",
         },
         ai: {
           question: "¿Usan IA con mis datos?",
@@ -509,12 +509,12 @@ export default {
             "Precios:",
             [
               "Se cotizan por actividad (análisis, diseño, desarrollo y pruebas) con la tarifa de ${rate} MXN por hora, IVA incluido. El desarrollo incluye SEO básico y la optimización de los recursos gráficos.",
-              "Cada página informativa adicional cuesta ${rate} MXN, IVA incluido.",
+              "Cada página informativa adicional cuesta ${staticExtraPage} MXN, IVA incluido (una hora de análisis y una de desarrollo).",
               "Las promociones vigentes se rigen por la sección «Promociones».",
             ],
             "Pagos:",
             [
-              "Se inicia con un anticipo del {staticDeposit} % del total. En proyectos de más de ${staticMinDepositFrom} MXN, el anticipo mínimo es de ${staticMinDeposit} MXN, y puedes adelantar más si lo deseas.",
+              "Se inicia con un anticipo del {staticDeposit} % del total.",
               "El saldo se paga antes de publicar el sitio en tu servidor.",
               "Al pagar el anticipo aceptas el desarrollo y los precios de la cotización.",
             ],
@@ -527,9 +527,10 @@ export default {
             ],
             "Código fuente:",
             [
-              "{brand} conserva el código fuente y su propiedad. Así podemos darte soporte en cambios futuros, que cuestan ${rate} MXN por hora, IVA incluido.",
+              "{brand} conserva el código fuente y su propiedad, salvo que pagues su liberación. Así podemos darte soporte en cambios futuros, que cuestan ${rate} MXN por hora, IVA incluido.",
               "Si prefieres trabajar con otro proveedor, la liberación del código fuente se cotiza por separado.",
             ],
+            "La pausa y la cancelación se rigen por la sección «Pausa y cancelación de proyectos», considerando la página estática como un único módulo.",
           ],
         },
         {
@@ -537,7 +538,9 @@ export default {
           blocks: [
             "Las promociones no son permanentes. Cada promoción indica en su cotización o en su anuncio a quién va dirigida, su vigencia y sus condiciones.",
             [
-              "Una promoción aplica solo a los proyectos contratados, con el pago del anticipo, durante su vigencia.",
+              "Una promoción aplica solo a las personas a quienes va dirigida su cotización y a los proyectos contratados, con el pago del anticipo, durante su vigencia.",
+              "Las promociones no son combinables.",
+              "Una promoción puede fijar sus propios precios y su propio anticipo; si no los fija, se aplican los de estos términos.",
               "La cotización muestra el valor real del proyecto y el descuento de la promoción.",
               "Al terminar la vigencia, los proyectos nuevos se cotizan con los precios de estos términos.",
               "En todo lo que la promoción no indique, se aplican estos términos.",
@@ -584,7 +587,7 @@ export default {
         {
           title: "Garantía",
           blocks: [
-            "Cada módulo de desarrollo a la medida cuenta con una garantía de {warrantyDays} días naturales, contados a partir de su entrega.",
+            "Cada módulo de desarrollo a la medida y cada página web estática cuentan con una garantía de {warrantyDays} días naturales, contados a partir de su entrega.",
             [
               "Cubre: la corrección sin costo de defectos en lo entregado.",
               "No cubre: funciones nuevas, cambios de alcance, fallas causadas por modificaciones realizadas por terceros, cambios en plataformas o servicios de terceros ni módulos entregados sin terminar a tu solicitud.",
