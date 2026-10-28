@@ -520,7 +520,8 @@ export default {
             ],
             "Delivery:",
             [
-              "You provide the graphic material and business information the site requires.",
+              "You provide the graphic material and business information the site requires within one month of paying the deposit. If you do not provide it within that period, the project is considered abandoned and cancelled, and the deposit is not refunded.",
+              "Revisions are unlimited as long as they are minor changes: text corrections, the position of graphic elements or replacing files you provide, such as photos or logos.",
               "Development takes at least 1 week. It may be extended with prior notice and depends on how long you take to send us the requested material.",
               "Progress is published on {brand} servers for your review.",
               "Once the project is paid in full, we publish the site on the server of your choice and deliver the compiled site.",
