@@ -1,0 +1,45 @@
+---
+import Button from "../ui/Button.astro";
+import Card from "../ui/Card.astro";
+import CheckList from "../ui/CheckList.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import TextLink from "../ui/TextLink.astro";
+import type { Dictionary } from "../../i18n/types";
+
+// Informational website offer: intro next to the base package price card.
+interface Props {
+  id: string;
+  copy: Dictionary["landing"]["websites"];
+  quoteHref: string;
+  termsHref: string;
+  newTabLabel: string;
+}
+
+const { id, copy, quoteHref, termsHref, newTabLabel } = Astro.props;
+const headingId = `${id}-title`;
+---
+
+<Section id={id} labelledby={headingId}>
+  <div class="grid grid-cols-1 items-start gap-6 lg:grid-cols-5">
+    <div class="lg:col-span-2">
+      <SectionHeading id={headingId}>{copy.title}</SectionHeading>
+      <p class="text-lg text-zinc-200">{copy.intro}</p>
+    </div>
+    <Card tone="highlight" class="flex flex-col lg:col-span-3">
+      <h3 class="text-2xl">{copy.card.title}</h3>
+      <p class="mb-6">
+        <span class="block text-sm font-semibold uppercase tracking-wide text-zinc-300">{copy.card.pricePrefix}</span>
+        <span class="font-heading text-4xl font-black text-zinc-50">{copy.card.price}</span>
+        <span class="block text-sm font-semibold text-brand-neon">{copy.card.taxNote}</span>
+      </p>
+      <p class="mb-3 font-semibold text-zinc-100">{copy.card.includesLabel}</p>
+      <CheckList items={copy.card.includes} class="mb-6 grid gap-2 text-zinc-100 sm:grid-cols-2 sm:space-y-0" />
+      <ul class="mb-8 list-disc space-y-1 pl-5 text-sm text-zinc-300 marker:text-brand-neon">
+        {copy.card.notes.map((note) => <li>{note}</li>)}
+        <li><TextLink href={termsHref}>{copy.card.termsLink}</TextLink></li>
+      </ul>
+      <Button href={quoteHref} newTabLabel={newTabLabel} class="mt-auto self-start">{copy.card.cta}</Button>
+    </Card>
+  </div>
+</Section>
