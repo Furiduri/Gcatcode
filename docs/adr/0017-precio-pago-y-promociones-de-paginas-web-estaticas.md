@@ -35,8 +35,8 @@ Las páginas web estáticas tienen una sección propia en los términos:
 - El cliente entrega el material gráfico y la información del negocio. Los
   avances se revisan en servidores de GCatcode; al liquidar, se publica en el
   servidor que elija el cliente y se entrega el sitio compilado.
-- GCatcode conserva el código fuente y su propiedad, salvo que el cliente pague
-  su liberación (ADR-0016).
+- La propiedad del código fuente la decide ADR-0018: es del cliente si paga el
+  proyecto sin promociones ni descuentos.
 - La garantía de 30 días (ADR-0008) aplica también a las páginas estáticas.
 - La pausa y la cancelación siguen las reglas del desarrollo modular
   (ADR-0010, ADR-0014), considerando la página estática como un único módulo.
@@ -89,9 +89,6 @@ para lo que la promoción no indica.
   son trabajo con poco margen.
 - Una página adicional de $1,000 MXN queda por debajo del mercado ($2,000 a
   $8,000 MXN) y supone páginas sencillas de dos horas.
-- La regla de cancelación del desarrollo modular entrega el código de un
-  módulo detenido de inmediato, lo que choca con que GCatcode conserve el código
-  de las páginas estáticas.
 
 ## Verificación
 
@@ -100,13 +97,12 @@ para lo que la promoción no indica.
 
 ## Verificación pendiente
 
-- No se definió qué se entrega al detener de inmediato una página estática en
-  desarrollo, dado que GCatcode conserva su código.
 - No se definió cuántas rondas de revisión incluye el precio ni el plazo para
   entregar el material.
 - Este ADR no fue revisado por un abogado.
 
 ## Alcance
 
-No decide la propiedad del código fuente de las páginas estáticas (ADR-0016).
+No decide la propiedad del código fuente de las páginas estáticas ni de los
+proyectos con promoción (ADR-0018).
 No cambia el desarrollo a la medida por módulos (ADR-0009).
