@@ -527,10 +527,11 @@ export default {
             ],
             "Código fuente:",
             [
-              "{brand} conserva el código fuente y su propiedad, salvo que pagues su liberación. Así podemos darte soporte en cambios futuros, que cuestan ${rate} MXN por hora, IVA incluido.",
-              "Si prefieres trabajar con otro proveedor, la liberación del código fuente se cotiza por separado.",
+              "Si pagas el proyecto sin promociones ni descuentos, el código fuente desarrollado para tu sitio es de tu propiedad al liquidarlo y te lo entregamos junto con el sitio compilado, como se indica en la sección «Propiedad del código».",
+              "En los proyectos con promoción o descuento, {brand} retiene el código fuente y su propiedad, incluso si el proyecto se detiene. Pasa a ser tuyo si pagas el valor del proyecto sin descuento.",
+              "Los cambios futuros cuestan ${rate} MXN por hora, IVA incluido.",
             ],
-            "La pausa y la cancelación se rigen por la sección «Pausa y cancelación de proyectos», considerando la página estática como un único módulo.",
+            "La pausa y la cancelación se rigen por la sección «Pausa y cancelación de proyectos», considerando la página estática como un único módulo. En los proyectos con promoción o descuento, detenerla de inmediato no incluye la entrega del código fuente.",
           ],
         },
         {
@@ -540,6 +541,7 @@ export default {
             [
               "Una promoción aplica solo a las personas a quienes va dirigida su cotización y a los proyectos contratados, con el pago del anticipo, durante su vigencia.",
               "Las promociones no son combinables.",
+              "En un proyecto con promoción, {brand} retiene el código fuente y su propiedad hasta que pagues el valor del proyecto sin descuento.",
               "Una promoción puede fijar sus propios precios y su propio anticipo; si no los fija, se aplican los de estos términos.",
               "La cotización muestra el valor real del proyecto y el descuento de la promoción.",
               "Al terminar la vigencia, los proyectos nuevos se cotizan con los precios de estos términos.",
@@ -569,7 +571,7 @@ export default {
           blocks: [
             [
               "El código desarrollado específicamente para tu proyecto es de tu propiedad una vez pagado el módulo que lo contiene.",
-              "En las páginas web estáticas, el código fuente se rige por la sección «Páginas web estáticas».",
+              "En las páginas web estáticas y en los proyectos con promoción, el código fuente se rige por las secciones «Páginas web estáticas» y «Promociones».",
               "Conservamos la titularidad de nuestras herramientas, plantillas, librerías y componentes previos o de uso genérico, incluidos los que desarrollemos durante tu proyecto. Podemos publicarlos bajo una licencia de código abierto o licenciarlos a terceros.",
               "El código de uso genérico no incluye tus datos, tu información confidencial ni la lógica propia de tu negocio.",
               "Recibes una autorización gratuita, permanente y no exclusiva para usar ese código genérico dentro de tu proyecto. Si requieres exclusividad sobre él, se cotiza por separado.",

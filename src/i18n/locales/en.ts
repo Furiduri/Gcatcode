@@ -527,10 +527,11 @@ export default {
             ],
             "Source code:",
             [
-              "{brand} keeps the source code and its ownership, unless you pay for its release. This lets us support you with future changes, which cost ${rate} MXN per hour, VAT (IVA) included.",
-              "If you prefer to work with another provider, releasing the source code is quoted separately.",
+              "If you pay for the project without promotions or discounts, the source code developed for your site is yours once it is paid in full, and we deliver it together with the compiled site, as described in the “Code ownership” section.",
+              "In projects with a promotion or discount, {brand} retains the source code and its ownership, even if the project is stopped. It becomes yours if you pay the project's value without the discount.",
+              "Future changes cost ${rate} MXN per hour, VAT (IVA) included.",
             ],
-            "Pausing and cancelling are governed by the “Project pause and cancellation” section, treating the static website as a single module.",
+            "Pausing and cancelling are governed by the “Project pause and cancellation” section, treating the static website as a single module. In projects with a promotion or discount, stopping it immediately does not include delivering the source code.",
           ],
         },
         {
@@ -540,6 +541,7 @@ export default {
             [
               "A promotion applies only to the people its quote is addressed to and to projects hired, by paying the deposit, during its validity period.",
               "Promotions cannot be combined.",
+              "In a project with a promotion, {brand} retains the source code and its ownership until you pay the project's value without the discount.",
               "A promotion may set its own prices and its own deposit; if it does not, those in these terms apply.",
               "The quote shows the project's real value and the promotion's discount.",
               "Once the validity period ends, new projects are quoted at the prices in these terms.",
@@ -569,7 +571,7 @@ export default {
           blocks: [
             [
               "The code developed specifically for your project is yours once the module that contains it is paid.",
-              "For static websites, the source code is governed by the “Static websites” section.",
+              "For static websites and projects with a promotion, the source code is governed by the “Static websites” and “Promotions” sections.",
               "We retain ownership of our tools, templates, libraries and pre-existing or general-purpose components, including those we develop during your project. We may publish them under an open-source license or license them to third parties.",
               "General-purpose code does not include your data, your confidential information or your business's own logic.",
               "You receive a free, perpetual and non-exclusive permission to use that general-purpose code within your project. If you need exclusivity over it, it is quoted separately.",
