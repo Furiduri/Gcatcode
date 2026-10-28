@@ -379,7 +379,7 @@ export default {
   },
   legal: {
     updatedLabel: "Last updated:",
-    updatedDate: "October 6, 2026",
+    updatedDate: "October 27, 2026",
     prevailNote: "This is an English translation of the Spanish original. In case of any discrepancy between versions, the Spanish version prevails.",
     backHome: "Back to home",
     terms: {
@@ -401,6 +401,7 @@ export default {
               "Initial discovery meeting, free and with no commitment.",
               "Technical advisory, training and general technical support, including guidance on using existing platforms and tools on the market.",
               "Custom solution development: websites and web platforms, mobile apps and desktop systems.",
+              "Static websites: informational sites with no backend or database.",
             ],
           ],
         },
@@ -412,6 +413,7 @@ export default {
               "Initial meeting: free, lasting up to {minutes} minutes, by video call or in person in Zapopan and Guadalajara, Jalisco.",
               "Advisory, training and technical support: from ${rate} MXN per hour, VAT (IVA) included, according to the scope described in the next section.",
               "Custom development: quoted per module, as described in the “Custom development” section.",
+              "Static websites: quoted per activity, as described in the “Static websites” section.",
             ],
           ],
         },
@@ -497,6 +499,36 @@ export default {
           ],
         },
         {
+          title: "Static websites",
+          blocks: [
+            "A static website is an informational site with no backend or database, such as a landing page, an “About” section, terms and conditions or a catalog of products or services. This section applies only to static websites; systems with a frontend, backend and database are governed by the “Custom development” section.",
+            "Prices:",
+            [
+              "They are quoted per activity (analysis, design, development and testing) at the rate of ${rate} MXN per hour, VAT (IVA) included. Development includes basic SEO and the optimization of graphic assets.",
+              "Each additional informational page costs ${rate} MXN, VAT (IVA) included.",
+              "First-project promotion: micro businesses and entrepreneurs can hire their first static website, with a landing page, an “About” section, terms and conditions and a catalog, for ${staticPromo} MXN, VAT (IVA) included. It applies only once; the quote shows the project's real value and the discount applied.",
+            ],
+            "Payments:",
+            [
+              "The project starts with a deposit of {staticDeposit}% of the total. For projects over ${staticMinDepositFrom} MXN, the minimum deposit is ${staticMinDeposit} MXN, and you may pay more if you wish.",
+              "The balance is paid before the site is published on your server.",
+              "By paying the deposit, you accept the development and the prices in the quote.",
+            ],
+            "Delivery:",
+            [
+              "You provide the graphic material and business information the site requires.",
+              "Development takes at least 1 week. It may be extended with prior notice and depends on how long you take to send us the requested material.",
+              "Progress is published on {brand} servers for your review.",
+              "Once the project is paid in full, we publish the site on the server of your choice and deliver the compiled site.",
+            ],
+            "Source code:",
+            [
+              "{brand} keeps the source code and its ownership. This lets us support you with future changes, which cost ${rate} MXN per hour, VAT (IVA) included.",
+              "If you prefer to work with another provider, releasing the source code is quoted separately.",
+            ],
+          ],
+        },
+        {
           title: "Project pause and cancellation",
           blocks: [
             "You may pause or cancel a project at any time. In both cases we refund in full the paid modules that have not been started and any credit balance.",
@@ -518,6 +550,7 @@ export default {
           blocks: [
             [
               "The code developed specifically for your project is yours once the module that contains it is paid.",
+              "For static websites, the source code is governed by the “Static websites” section.",
               "We retain ownership of our tools, templates, libraries and pre-existing or general-purpose components, including those we develop during your project. We may publish them under an open-source license or license them to third parties.",
               "General-purpose code does not include your data, your confidential information or your business's own logic.",
               "You receive a free, perpetual and non-exclusive permission to use that general-purpose code within your project. If you need exclusivity over it, it is quoted separately.",

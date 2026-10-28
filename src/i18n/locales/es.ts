@@ -379,7 +379,7 @@ export default {
   },
   legal: {
     updatedLabel: "Última actualización:",
-    updatedDate: "6 de octubre de 2026",
+    updatedDate: "27 de octubre de 2026",
     prevailNote: "Este documento también está disponible en inglés. En caso de discrepancia entre versiones, prevalece la versión en español.",
     backHome: "Volver al inicio",
     terms: {
@@ -401,6 +401,7 @@ export default {
               "Cita inicial de diagnóstico, gratuita y sin compromiso.",
               "Asesoría técnica, capacitación y soporte técnico general, incluida la orientación sobre el uso de plataformas y herramientas existentes en el mercado.",
               "Desarrollo de soluciones a la medida: sitios y plataformas web, aplicaciones móviles y sistemas de escritorio.",
+              "Páginas web estáticas: sitios informativos sin backend ni base de datos.",
             ],
           ],
         },
@@ -412,6 +413,7 @@ export default {
               "Cita inicial: gratuita, con una duración de hasta {minutes} minutos, por videollamada o presencial en Zapopan y Guadalajara, Jalisco.",
               "Asesoría, capacitación y soporte técnico: desde ${rate} MXN por hora, IVA incluido, según el alcance descrito en la sección siguiente.",
               "Desarrollo a la medida: se cotiza por módulo, según lo descrito en la sección «Desarrollo a la medida».",
+              "Páginas web estáticas: se cotizan por actividad, según lo descrito en la sección «Páginas web estáticas».",
             ],
           ],
         },
@@ -497,6 +499,36 @@ export default {
           ],
         },
         {
+          title: "Páginas web estáticas",
+          blocks: [
+            "Una página web estática es un sitio informativo sin backend ni base de datos, como una landing page, una sección «Acerca de», términos y condiciones o un catálogo de productos o servicios. Esta sección aplica solo a páginas estáticas; los sistemas con frontend, backend y base de datos se rigen por la sección «Desarrollo a la medida».",
+            "Precios:",
+            [
+              "Se cotizan por actividad (análisis, diseño, desarrollo y pruebas) con la tarifa de ${rate} MXN por hora, IVA incluido. El desarrollo incluye SEO básico y la optimización de los recursos gráficos.",
+              "Cada página informativa adicional cuesta ${rate} MXN, IVA incluido.",
+              "Promoción de primer proyecto: las micro empresas y los emprendedores pueden contratar su primera página estática, con landing page, sección «Acerca de», términos y condiciones y catálogo, por ${staticPromo} MXN, IVA incluido. Aplica una sola vez; la cotización muestra el valor real del proyecto y el descuento aplicado.",
+            ],
+            "Pagos:",
+            [
+              "Se inicia con un anticipo del {staticDeposit} % del total. En proyectos de más de ${staticMinDepositFrom} MXN, el anticipo mínimo es de ${staticMinDeposit} MXN, y puedes adelantar más si lo deseas.",
+              "El saldo se paga antes de publicar el sitio en tu servidor.",
+              "Al pagar el anticipo aceptas el desarrollo y los precios de la cotización.",
+            ],
+            "Entrega:",
+            [
+              "Debes entregarnos el material gráfico y la información del negocio que requiera el sitio.",
+              "El desarrollo dura como mínimo 1 semana. Puede extenderse con aviso previo y depende del tiempo que tardes en enviarnos el material solicitado.",
+              "Los avances se publican en servidores de {brand} para tu revisión.",
+              "Una vez liquidado el proyecto, publicamos el sitio en el servidor que elijas y te entregamos el sitio compilado.",
+            ],
+            "Código fuente:",
+            [
+              "{brand} conserva el código fuente y su propiedad. Así podemos darte soporte en cambios futuros, que cuestan ${rate} MXN por hora, IVA incluido.",
+              "Si prefieres trabajar con otro proveedor, la liberación del código fuente se cotiza por separado.",
+            ],
+          ],
+        },
+        {
           title: "Pausa y cancelación de proyectos",
           blocks: [
             "Puedes pausar o cancelar un proyecto en cualquier momento. En ambos casos te reembolsamos en su totalidad los módulos pagados que no se hayan iniciado y cualquier saldo a favor.",
@@ -518,6 +550,7 @@ export default {
           blocks: [
             [
               "El código desarrollado específicamente para tu proyecto es de tu propiedad una vez pagado el módulo que lo contiene.",
+              "En las páginas web estáticas, el código fuente se rige por la sección «Páginas web estáticas».",
               "Conservamos la titularidad de nuestras herramientas, plantillas, librerías y componentes previos o de uso genérico, incluidos los que desarrollemos durante tu proyecto. Podemos publicarlos bajo una licencia de código abierto o licenciarlos a terceros.",
               "El código de uso genérico no incluye tus datos, tu información confidencial ni la lógica propia de tu negocio.",
               "Recibes una autorización gratuita, permanente y no exclusiva para usar ese código genérico dentro de tu proyecto. Si requieres exclusividad sobre él, se cotiza por separado.",
