@@ -383,7 +383,7 @@ export default {
   },
   legal: {
     updatedLabel: "Last updated:",
-    updatedDate: "October 27, 2026",
+    updatedDate: "October 28, 2026",
     prevailNote: "This is an English translation of the Spanish original. In case of any discrepancy between versions, the Spanish version prevails.",
     backHome: "Back to home",
     terms: {
@@ -510,7 +510,7 @@ export default {
             [
               "They are quoted per activity (analysis, design, development and testing) at the rate of ${rate} MXN per hour, VAT (IVA) included. Development includes basic SEO and the optimization of graphic assets.",
               "Each additional informational page costs ${rate} MXN, VAT (IVA) included.",
-              "First-project promotion: micro businesses and entrepreneurs can hire their first static website, with a landing page, an “About” section, terms and conditions and a catalog, for ${staticPromo} MXN, VAT (IVA) included. It applies only once; the quote shows the project's real value and the discount applied.",
+              "Current promotions are governed by the “Promotions” section.",
             ],
             "Payments:",
             [
@@ -529,6 +529,18 @@ export default {
             [
               "{brand} keeps the source code and its ownership. This lets us support you with future changes, which cost ${rate} MXN per hour, VAT (IVA) included.",
               "If you prefer to work with another provider, releasing the source code is quoted separately.",
+            ],
+          ],
+        },
+        {
+          title: "Promotions",
+          blocks: [
+            "Promotions are not permanent. Each promotion states in its quote or its announcement who it is for, its validity period and its conditions.",
+            [
+              "A promotion applies only to projects hired, by paying the deposit, during its validity period.",
+              "The quote shows the project's real value and the promotion's discount.",
+              "Once the validity period ends, new projects are quoted at the prices in these terms.",
+              "These terms apply to everything the promotion does not state.",
             ],
           ],
         },

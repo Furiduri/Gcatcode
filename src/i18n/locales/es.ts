@@ -383,7 +383,7 @@ export default {
   },
   legal: {
     updatedLabel: "Última actualización:",
-    updatedDate: "27 de octubre de 2026",
+    updatedDate: "28 de octubre de 2026",
     prevailNote: "Este documento también está disponible en inglés. En caso de discrepancia entre versiones, prevalece la versión en español.",
     backHome: "Volver al inicio",
     terms: {
@@ -510,7 +510,7 @@ export default {
             [
               "Se cotizan por actividad (análisis, diseño, desarrollo y pruebas) con la tarifa de ${rate} MXN por hora, IVA incluido. El desarrollo incluye SEO básico y la optimización de los recursos gráficos.",
               "Cada página informativa adicional cuesta ${rate} MXN, IVA incluido.",
-              "Promoción de primer proyecto: las micro empresas y los emprendedores pueden contratar su primera página estática, con landing page, sección «Acerca de», términos y condiciones y catálogo, por ${staticPromo} MXN, IVA incluido. Aplica una sola vez; la cotización muestra el valor real del proyecto y el descuento aplicado.",
+              "Las promociones vigentes se rigen por la sección «Promociones».",
             ],
             "Pagos:",
             [
@@ -529,6 +529,18 @@ export default {
             [
               "{brand} conserva el código fuente y su propiedad. Así podemos darte soporte en cambios futuros, que cuestan ${rate} MXN por hora, IVA incluido.",
               "Si prefieres trabajar con otro proveedor, la liberación del código fuente se cotiza por separado.",
+            ],
+          ],
+        },
+        {
+          title: "Promociones",
+          blocks: [
+            "Las promociones no son permanentes. Cada promoción indica en su cotización o en su anuncio a quién va dirigida, su vigencia y sus condiciones.",
+            [
+              "Una promoción aplica solo a los proyectos contratados, con el pago del anticipo, durante su vigencia.",
+              "La cotización muestra el valor real del proyecto y el descuento de la promoción.",
+              "Al terminar la vigencia, los proyectos nuevos se cotizan con los precios de estos términos.",
+              "En todo lo que la promoción no indique, se aplican estos términos.",
             ],
           ],
         },
