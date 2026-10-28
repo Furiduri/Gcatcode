@@ -37,7 +37,9 @@ Las páginas web estáticas tienen una sección propia en los términos:
   proyecto se considera abandonado y cancelado, y el anticipo no se reembolsa.
 - Las revisiones no tienen límite mientras sean cambios mínimos: corrección de
   textos, posición de elementos gráficos o cambio de archivos proporcionados
-  por el cliente, como fotografías o logos.
+  por el cliente, como fotografías o logos. Un cambio mínimo toma hasta 30
+  minutos y no requiere análisis; los que requieren análisis o más tiempo se
+  cobran como soporte a $500 MXN por hora.
 - Los avances se revisan en servidores de GCatcode; al liquidar, se publica en
   el servidor que elija el cliente y se entrega el sitio compilado.
 - La propiedad del código fuente la decide ADR-0018: es del cliente si paga el
@@ -94,8 +96,8 @@ para lo que la promoción no indica.
   son trabajo con poco margen.
 - Una página adicional de $1,000 MXN queda por debajo del mercado ($2,000 a
   $8,000 MXN) y supone páginas sencillas de dos horas.
-- Las revisiones ilimitadas dependen de distinguir un cambio mínimo de uno
-  mayor; la frontera puede discutirse en un caso concreto.
+- Estimar si un cambio cabe en 30 minutos depende del juicio del proveedor y
+  puede discutirse en un caso concreto.
 - Retener el anticipo de un proyecto abandonado puede generar reclamos ante
   Profeco si el cliente no fue avisado del plazo.
 
@@ -106,8 +108,6 @@ para lo que la promoción no indica.
 
 ## Verificación pendiente
 
-- No se definió cómo se cobran los cambios que no son mínimos durante el
-  desarrollo.
 - Este ADR no fue revisado por un abogado.
 
 ## Alcance
