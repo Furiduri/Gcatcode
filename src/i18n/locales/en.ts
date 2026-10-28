@@ -188,7 +188,7 @@ export default {
       items: {
         web: {
           title: "Websites and web platforms",
-          text: "From a website that presents your business to platforms with an admin panel to manage your operations.",
+          text: "From a website that presents your business to platforms with an admin panel to manage your operations. Informational websites from ${staticFrom} MXN, VAT (IVA) included.",
         },
         mobile: {
           title: "Mobile apps",
@@ -285,6 +285,10 @@ export default {
           question: "Do you meet in person?",
           answer: "Yes, in Zapopan and Guadalajara, with no travel charge. In other locations, we quote the session with travel expenses included. We also meet online by video call.",
         },
+        websitePrice: {
+          question: "How much does an informational website cost?",
+          answer: "From ${staticFrom} MXN, VAT (IVA) included, with a landing page, an “About” section, terms and conditions and a catalog of products or services, built for mobile and desktop, with basic SEO. Each additional page costs ${staticExtraPage} MXN. It starts with a {staticDeposit}% deposit, and the balance is paid before publishing.",
+        },
         advisoryPrice: {
           question: "How much does the advisory cost?",
           answer: "Advisory, training and technical support start at ${rate} MXN per hour, VAT (IVA) included. That base rate applies to sessions of up to {attendees} people on widely used platforms. For larger groups or enterprise or specialized systems, we send you a written quote before we start.",
@@ -295,7 +299,7 @@ export default {
         },
         warranty: {
           question: "What does the warranty cover?",
-          answer: "During the {warrantyDays} days after each development module is delivered, we fix defects in what we delivered at no cost. It does not cover new features, scope changes, failures caused by third-party modifications or changes to third-party platforms.",
+          answer: "During the {warrantyDays} days after each development module or static website is delivered, we fix defects in what we delivered at no cost. It does not cover new features, scope changes, failures caused by third-party modifications or changes to third-party platforms.",
         },
         ai: {
           question: "Do you use AI with my data?",
@@ -379,7 +383,7 @@ export default {
   },
   legal: {
     updatedLabel: "Last updated:",
-    updatedDate: "October 27, 2026",
+    updatedDate: "October 28, 2026",
     prevailNote: "This is an English translation of the Spanish original. In case of any discrepancy between versions, the Spanish version prevails.",
     backHome: "Back to home",
     terms: {
@@ -413,7 +417,7 @@ export default {
               "Initial meeting: free, lasting up to {minutes} minutes, by video call or in person in Zapopan and Guadalajara, Jalisco.",
               "Advisory, training and technical support: from ${rate} MXN per hour, VAT (IVA) included, according to the scope described in the next section.",
               "Custom development: quoted per module, as described in the “Custom development” section.",
-              "Static websites: quoted per activity, as described in the “Static websites” section.",
+              "Static websites: from ${staticFrom} MXN, VAT (IVA) included; quoted per activity, as described in the “Static websites” section.",
             ],
           ],
         },
@@ -505,26 +509,44 @@ export default {
             "Prices:",
             [
               "They are quoted per activity (analysis, design, development and testing) at the rate of ${rate} MXN per hour, VAT (IVA) included. Development includes basic SEO and the optimization of graphic assets.",
-              "Each additional informational page costs ${rate} MXN, VAT (IVA) included.",
-              "First-project promotion: micro businesses and entrepreneurs can hire their first static website, with a landing page, an “About” section, terms and conditions and a catalog, for ${staticPromo} MXN, VAT (IVA) included. It applies only once; the quote shows the project's real value and the discount applied.",
+              "Each additional informational page costs ${staticExtraPage} MXN, VAT (IVA) included (one hour of analysis and one of development).",
+              "Current promotions are governed by the “Promotions” section.",
             ],
             "Payments:",
             [
-              "The project starts with a deposit of {staticDeposit}% of the total. For projects over ${staticMinDepositFrom} MXN, the minimum deposit is ${staticMinDeposit} MXN, and you may pay more if you wish.",
+              "The project starts with a deposit of {staticDeposit}% of the total.",
               "The balance is paid before the site is published on your server.",
               "By paying the deposit, you accept the development and the prices in the quote.",
             ],
             "Delivery:",
             [
-              "You provide the graphic material and business information the site requires.",
+              "You provide the graphic material and business information the site requires within one month of paying the deposit. If you do not provide it within that period, the project is considered abandoned and cancelled, and the deposit is not refunded.",
+              "Revisions are unlimited as long as they are minor changes: text corrections, the position of graphic elements or replacing files you provide, such as photos or logos. A minor change takes up to 30 minutes and requires no analysis; changes that require analysis or more time are charged as support, at ${rate} MXN per hour, VAT (IVA) included.",
               "Development takes at least 1 week. It may be extended with prior notice and depends on how long you take to send us the requested material.",
               "Progress is published on {brand} servers for your review.",
               "Once the project is paid in full, we publish the site on the server of your choice and deliver the compiled site.",
             ],
             "Source code:",
             [
-              "{brand} keeps the source code and its ownership. This lets us support you with future changes, which cost ${rate} MXN per hour, VAT (IVA) included.",
-              "If you prefer to work with another provider, releasing the source code is quoted separately.",
+              "If you pay for the project without promotions or discounts, the source code developed for your site is yours once it is paid in full, and we deliver it together with the compiled site, as described in the “Code ownership” section.",
+              "In projects with a promotion or discount, {brand} retains the source code and its ownership, even if the project is stopped. It becomes yours if you pay the project's value without the discount.",
+              "Future changes cost ${rate} MXN per hour, VAT (IVA) included.",
+            ],
+            "Pausing and cancelling are governed by the “Project pause and cancellation” section, treating the static website as a single module. In projects with a promotion or discount, stopping it immediately does not include delivering the source code.",
+          ],
+        },
+        {
+          title: "Promotions",
+          blocks: [
+            "Promotions are not permanent. Each promotion states in its quote or its announcement who it is for, its validity period and its conditions.",
+            [
+              "A promotion applies only to the people its quote is addressed to and to projects hired, by paying the deposit, during its validity period.",
+              "Promotions cannot be combined.",
+              "In a project with a promotion, {brand} retains the source code and its ownership until you pay the project's value without the discount.",
+              "A promotion may set its own prices and its own deposit; if it does not, those in these terms apply.",
+              "The quote shows the project's real value and the promotion's discount.",
+              "Once the validity period ends, new projects are quoted at the prices in these terms.",
+              "These terms apply to everything the promotion does not state.",
             ],
           ],
         },
@@ -550,7 +572,7 @@ export default {
           blocks: [
             [
               "The code developed specifically for your project is yours once the module that contains it is paid.",
-              "For static websites, the source code is governed by the “Static websites” section.",
+              "For static websites and projects with a promotion, the source code is governed by the “Static websites” and “Promotions” sections.",
               "We retain ownership of our tools, templates, libraries and pre-existing or general-purpose components, including those we develop during your project. We may publish them under an open-source license or license them to third parties.",
               "General-purpose code does not include your data, your confidential information or your business's own logic.",
               "You receive a free, perpetual and non-exclusive permission to use that general-purpose code within your project. If you need exclusivity over it, it is quoted separately.",
@@ -568,7 +590,7 @@ export default {
         {
           title: "Warranty",
           blocks: [
-            "Each custom development module carries a warranty of {warrantyDays} calendar days from its delivery.",
+            "Each custom development module and each static website carries a warranty of {warrantyDays} calendar days from its delivery.",
             [
               "Covers: free correction of defects in what was delivered.",
               "Does not cover: new features, scope changes, failures caused by modifications made by third parties, changes to third-party platforms or services, or modules delivered unfinished at your request.",

@@ -188,7 +188,7 @@ export default {
       items: {
         web: {
           title: "Sitios y plataformas web",
-          text: "Desde un sitio que presente tu negocio hasta plataformas con panel de administración para gestionar tu operación.",
+          text: "Desde un sitio que presente tu negocio hasta plataformas con panel de administración para gestionar tu operación. Páginas web informativas desde ${staticFrom} MXN, IVA incluido.",
         },
         mobile: {
           title: "Aplicaciones móviles",
@@ -285,6 +285,10 @@ export default {
           question: "¿Atienden en persona?",
           answer: "Sí, en Zapopan y Guadalajara, sin costo de traslado. En otras localidades, cotizamos la sesión con los viáticos incluidos. También atendemos en línea por videollamada.",
         },
+        websitePrice: {
+          question: "¿Cuánto cuesta una página web informativa?",
+          answer: "Desde ${staticFrom} MXN, IVA incluido, con landing page, sección «Acerca de», términos y condiciones y catálogo de productos o servicios, adaptada a celular y computadora, con SEO básico. Cada página adicional cuesta ${staticExtraPage} MXN. Se inicia con un anticipo del {staticDeposit} % y el saldo se paga antes de publicar.",
+        },
         advisoryPrice: {
           question: "¿Cuánto cuesta la asesoría?",
           answer: "La asesoría, capacitación y soporte técnico cuestan desde ${rate} MXN por hora, IVA incluido. Esa tarifa base aplica a sesiones de hasta {attendees} personas sobre plataformas de uso común. Para grupos más grandes o sistemas empresariales o especializados, te enviamos una cotización por escrito antes de empezar.",
@@ -295,7 +299,7 @@ export default {
         },
         warranty: {
           question: "¿Qué cubre la garantía?",
-          answer: "Durante los {warrantyDays} días siguientes a la entrega de cada módulo de desarrollo, corregimos sin costo los defectos en lo entregado. No cubre funciones nuevas, cambios de alcance, fallas causadas por modificaciones de terceros ni cambios en plataformas de terceros.",
+          answer: "Durante los {warrantyDays} días siguientes a la entrega de cada módulo de desarrollo o página web estática, corregimos sin costo los defectos en lo entregado. No cubre funciones nuevas, cambios de alcance, fallas causadas por modificaciones de terceros ni cambios en plataformas de terceros.",
         },
         ai: {
           question: "¿Usan IA con mis datos?",
@@ -379,7 +383,7 @@ export default {
   },
   legal: {
     updatedLabel: "Última actualización:",
-    updatedDate: "27 de octubre de 2026",
+    updatedDate: "28 de octubre de 2026",
     prevailNote: "Este documento también está disponible en inglés. En caso de discrepancia entre versiones, prevalece la versión en español.",
     backHome: "Volver al inicio",
     terms: {
@@ -413,7 +417,7 @@ export default {
               "Cita inicial: gratuita, con una duración de hasta {minutes} minutos, por videollamada o presencial en Zapopan y Guadalajara, Jalisco.",
               "Asesoría, capacitación y soporte técnico: desde ${rate} MXN por hora, IVA incluido, según el alcance descrito en la sección siguiente.",
               "Desarrollo a la medida: se cotiza por módulo, según lo descrito en la sección «Desarrollo a la medida».",
-              "Páginas web estáticas: se cotizan por actividad, según lo descrito en la sección «Páginas web estáticas».",
+              "Páginas web estáticas: desde ${staticFrom} MXN, IVA incluido; se cotizan por actividad, según lo descrito en la sección «Páginas web estáticas».",
             ],
           ],
         },
@@ -505,26 +509,44 @@ export default {
             "Precios:",
             [
               "Se cotizan por actividad (análisis, diseño, desarrollo y pruebas) con la tarifa de ${rate} MXN por hora, IVA incluido. El desarrollo incluye SEO básico y la optimización de los recursos gráficos.",
-              "Cada página informativa adicional cuesta ${rate} MXN, IVA incluido.",
-              "Promoción de primer proyecto: las micro empresas y los emprendedores pueden contratar su primera página estática, con landing page, sección «Acerca de», términos y condiciones y catálogo, por ${staticPromo} MXN, IVA incluido. Aplica una sola vez; la cotización muestra el valor real del proyecto y el descuento aplicado.",
+              "Cada página informativa adicional cuesta ${staticExtraPage} MXN, IVA incluido (una hora de análisis y una de desarrollo).",
+              "Las promociones vigentes se rigen por la sección «Promociones».",
             ],
             "Pagos:",
             [
-              "Se inicia con un anticipo del {staticDeposit} % del total. En proyectos de más de ${staticMinDepositFrom} MXN, el anticipo mínimo es de ${staticMinDeposit} MXN, y puedes adelantar más si lo deseas.",
+              "Se inicia con un anticipo del {staticDeposit} % del total.",
               "El saldo se paga antes de publicar el sitio en tu servidor.",
               "Al pagar el anticipo aceptas el desarrollo y los precios de la cotización.",
             ],
             "Entrega:",
             [
-              "Debes entregarnos el material gráfico y la información del negocio que requiera el sitio.",
+              "Debes entregarnos el material gráfico y la información del negocio que requiera el sitio en un plazo no mayor a un mes a partir del pago del anticipo. Si no lo entregas en ese plazo, el proyecto se considera abandonado y cancelado, y el anticipo no se reembolsa.",
+              "Las revisiones no tienen límite mientras sean cambios mínimos: corrección de textos, posición de elementos gráficos o cambio de archivos que proporciones, como fotografías o logos. Un cambio mínimo toma hasta 30 minutos y no requiere análisis; los cambios que requieren análisis o más tiempo se cobran como soporte, a ${rate} MXN por hora, IVA incluido.",
               "El desarrollo dura como mínimo 1 semana. Puede extenderse con aviso previo y depende del tiempo que tardes en enviarnos el material solicitado.",
               "Los avances se publican en servidores de {brand} para tu revisión.",
               "Una vez liquidado el proyecto, publicamos el sitio en el servidor que elijas y te entregamos el sitio compilado.",
             ],
             "Código fuente:",
             [
-              "{brand} conserva el código fuente y su propiedad. Así podemos darte soporte en cambios futuros, que cuestan ${rate} MXN por hora, IVA incluido.",
-              "Si prefieres trabajar con otro proveedor, la liberación del código fuente se cotiza por separado.",
+              "Si pagas el proyecto sin promociones ni descuentos, el código fuente desarrollado para tu sitio es de tu propiedad al liquidarlo y te lo entregamos junto con el sitio compilado, como se indica en la sección «Propiedad del código».",
+              "En los proyectos con promoción o descuento, {brand} retiene el código fuente y su propiedad, incluso si el proyecto se detiene. Pasa a ser tuyo si pagas el valor del proyecto sin descuento.",
+              "Los cambios futuros cuestan ${rate} MXN por hora, IVA incluido.",
+            ],
+            "La pausa y la cancelación se rigen por la sección «Pausa y cancelación de proyectos», considerando la página estática como un único módulo. En los proyectos con promoción o descuento, detenerla de inmediato no incluye la entrega del código fuente.",
+          ],
+        },
+        {
+          title: "Promociones",
+          blocks: [
+            "Las promociones no son permanentes. Cada promoción indica en su cotización o en su anuncio a quién va dirigida, su vigencia y sus condiciones.",
+            [
+              "Una promoción aplica solo a las personas a quienes va dirigida su cotización y a los proyectos contratados, con el pago del anticipo, durante su vigencia.",
+              "Las promociones no son combinables.",
+              "En un proyecto con promoción, {brand} retiene el código fuente y su propiedad hasta que pagues el valor del proyecto sin descuento.",
+              "Una promoción puede fijar sus propios precios y su propio anticipo; si no los fija, se aplican los de estos términos.",
+              "La cotización muestra el valor real del proyecto y el descuento de la promoción.",
+              "Al terminar la vigencia, los proyectos nuevos se cotizan con los precios de estos términos.",
+              "En todo lo que la promoción no indique, se aplican estos términos.",
             ],
           ],
         },
@@ -550,7 +572,7 @@ export default {
           blocks: [
             [
               "El código desarrollado específicamente para tu proyecto es de tu propiedad una vez pagado el módulo que lo contiene.",
-              "En las páginas web estáticas, el código fuente se rige por la sección «Páginas web estáticas».",
+              "En las páginas web estáticas y en los proyectos con promoción, el código fuente se rige por las secciones «Páginas web estáticas» y «Promociones».",
               "Conservamos la titularidad de nuestras herramientas, plantillas, librerías y componentes previos o de uso genérico, incluidos los que desarrollemos durante tu proyecto. Podemos publicarlos bajo una licencia de código abierto o licenciarlos a terceros.",
               "El código de uso genérico no incluye tus datos, tu información confidencial ni la lógica propia de tu negocio.",
               "Recibes una autorización gratuita, permanente y no exclusiva para usar ese código genérico dentro de tu proyecto. Si requieres exclusividad sobre él, se cotiza por separado.",
@@ -568,7 +590,7 @@ export default {
         {
           title: "Garantía",
           blocks: [
-            "Cada módulo de desarrollo a la medida cuenta con una garantía de {warrantyDays} días naturales, contados a partir de su entrega.",
+            "Cada módulo de desarrollo a la medida y cada página web estática cuentan con una garantía de {warrantyDays} días naturales, contados a partir de su entrega.",
             [
               "Cubre: la corrección sin costo de defectos en lo entregado.",
               "No cubre: funciones nuevas, cambios de alcance, fallas causadas por modificaciones realizadas por terceros, cambios en plataformas o servicios de terceros ni módulos entregados sin terminar a tu solicitud.",
