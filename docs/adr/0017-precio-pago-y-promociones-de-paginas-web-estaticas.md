@@ -32,9 +32,14 @@ Las páginas web estáticas tienen una sección propia en los términos:
   cotización.
 - El desarrollo dura como mínimo 1 semana; puede extenderse con aviso previo y
   depende del tiempo que tarde el cliente en enviar el material solicitado.
-- El cliente entrega el material gráfico y la información del negocio. Los
-  avances se revisan en servidores de GCatcode; al liquidar, se publica en el
-  servidor que elija el cliente y se entrega el sitio compilado.
+- El cliente entrega el material gráfico y la información del negocio en un
+  plazo no mayor a un mes desde el pago del anticipo. Si no lo entrega, el
+  proyecto se considera abandonado y cancelado, y el anticipo no se reembolsa.
+- Las revisiones no tienen límite mientras sean cambios mínimos: corrección de
+  textos, posición de elementos gráficos o cambio de archivos proporcionados
+  por el cliente, como fotografías o logos.
+- Los avances se revisan en servidores de GCatcode; al liquidar, se publica en
+  el servidor que elija el cliente y se entrega el sitio compilado.
 - La propiedad del código fuente la decide ADR-0018: es del cliente si paga el
   proyecto sin promociones ni descuentos.
 - La garantía de 30 días (ADR-0008) aplica también a las páginas estáticas.
@@ -89,6 +94,10 @@ para lo que la promoción no indica.
   son trabajo con poco margen.
 - Una página adicional de $1,000 MXN queda por debajo del mercado ($2,000 a
   $8,000 MXN) y supone páginas sencillas de dos horas.
+- Las revisiones ilimitadas dependen de distinguir un cambio mínimo de uno
+  mayor; la frontera puede discutirse en un caso concreto.
+- Retener el anticipo de un proyecto abandonado puede generar reclamos ante
+  Profeco si el cliente no fue avisado del plazo.
 
 ## Verificación
 
@@ -97,8 +106,8 @@ para lo que la promoción no indica.
 
 ## Verificación pendiente
 
-- No se definió cuántas rondas de revisión incluye el precio ni el plazo para
-  entregar el material.
+- No se definió cómo se cobran los cambios que no son mínimos durante el
+  desarrollo.
 - Este ADR no fue revisado por un abogado.
 
 ## Alcance
