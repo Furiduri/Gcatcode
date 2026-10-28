@@ -521,7 +521,7 @@ export default {
             "Entrega:",
             [
               "Debes entregarnos el material gráfico y la información del negocio que requiera el sitio en un plazo no mayor a un mes a partir del pago del anticipo. Si no lo entregas en ese plazo, el proyecto se considera abandonado y cancelado, y el anticipo no se reembolsa.",
-              "Las revisiones no tienen límite mientras sean cambios mínimos: corrección de textos, posición de elementos gráficos o cambio de archivos que proporciones, como fotografías o logos.",
+              "Las revisiones no tienen límite mientras sean cambios mínimos: corrección de textos, posición de elementos gráficos o cambio de archivos que proporciones, como fotografías o logos. Un cambio mínimo toma hasta 30 minutos y no requiere análisis; los cambios que requieren análisis o más tiempo se cobran como soporte, a ${rate} MXN por hora, IVA incluido.",
               "El desarrollo dura como mínimo 1 semana. Puede extenderse con aviso previo y depende del tiempo que tardes en enviarnos el material solicitado.",
               "Los avances se publican en servidores de {brand} para tu revisión.",
               "Una vez liquidado el proyecto, publicamos el sitio en el servidor que elijas y te entregamos el sitio compilado.",
