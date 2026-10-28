@@ -24,6 +24,11 @@ export const business = {
   cycleBusinessDays: 10,
   cycleWeeks: 2,
   warrantyDays: 30,
+  // Static websites (ADR-0015): first-project promotion and deposit; above
+  // twice the minimum, the minimum deposit is enough.
+  staticPromoMxn: 1500,
+  staticDepositPercent: 50,
+  staticMinDepositMxn: 1000,
   // Project pause and source retention (ADR-0010).
   pauseRetentionMonths: 6,
   cancellationRetentionMonths: 3,
@@ -34,7 +39,7 @@ export const business = {
 
 // ISO date of the last revision of the terms and the privacy notice; the
 // human-readable date lives in each dictionary (`legal.updatedDate`).
-export const legalLastUpdated = "2026-10-06";
+export const legalLastUpdated = "2026-10-27";
 
 // WhatsApp click-to-chat link with a prefilled message.
 export function whatsappUrl(message: string): string {
@@ -67,4 +72,8 @@ export const businessPlaceholders = {
   cycleDays: business.cycleBusinessDays,
   cycleWeeks: business.cycleWeeks,
   warrantyDays: business.warrantyDays,
+  staticPromo: business.staticPromoMxn.toLocaleString("en-US"),
+  staticDeposit: business.staticDepositPercent,
+  staticMinDeposit: business.staticMinDepositMxn.toLocaleString("en-US"),
+  staticMinDepositFrom: (business.staticMinDepositMxn * 2).toLocaleString("en-US"),
 } as const;

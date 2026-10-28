@@ -25,6 +25,8 @@ principal: **un ADR aceptado no se edita, se supera con uno nuevo.**
 | [0012](0012-servicios-de-terceros-a-cargo-del-cliente.md) | Servicios de terceros a cargo del cliente | Aceptada | 2026-10-06 |
 | [0013](0013-conservacion-de-datos-personales.md) | Conservación de datos personales y datos bancarios | Aceptada | 2026-10-06 |
 | [0014](0014-modulo-en-desarrollo-al-pausar-o-cancelar.md) | Módulo en desarrollo al pausar o cancelar | Aceptada | 2026-10-06 |
+| [0015](0015-precio-y-pago-de-paginas-web-estaticas.md) | Precio y pago de las páginas web estáticas | Aceptada | 2026-10-27 |
+| [0016](0016-codigo-fuente-de-paginas-web-estaticas.md) | Código fuente de las páginas web estáticas | Aceptada | 2026-10-27 |
 
 ## Pendientes
 

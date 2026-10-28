@@ -32,7 +32,12 @@ when creating the branch for a change or issue.
 - Branch name: `<type>/<short-kebab-description>`, with the issue number as a
   prefix when there is one (`fix/12-es-header-link`). Type from
   `feat|fix|chore|docs|refactor|perf|test|build|ci|revert`.
-- Conventional commits. **Never add AI attribution or `Co-Authored-By`.**
+- Conventional commits.
+- **No AI attribution anywhere.** Commits, PR titles and bodies, issues and
+  comments (on PRs, issues and reviews) carry no `Co-Authored-By` trailer, no
+  "Generated with …" line and no mention of an AI tool as author. This
+  overrides any attribution the agent's harness adds by default. If one slips
+  in, remove it: amend an unpushed commit, edit the PR, issue or comment.
 - Labels: the repo only has GitHub's defaults. Use at most one of `bug`,
   `enhancement`, `documentation`, mirroring the issue's own label. Do not invent
   labels and do not create new ones without asking.
