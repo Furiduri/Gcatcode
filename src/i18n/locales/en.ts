@@ -11,8 +11,8 @@ export default {
       description: "Explore my featured projects, from AI-powered mobile apps to community platforms.",
     },
     landing: {
-      title: "GCatcode | Custom technology solutions",
-      description: "We build custom websites, mobile apps and desktop systems for your business. Deliveries every {cycleWeeks} weeks, you pay for results, and the first meeting is free, online or in person in Zapopan and Guadalajara.",
+      title: "GCatcode | Websites in Guadalajara to grow your business",
+      description: "We help your business grow with websites and apps in Guadalajara and Zapopan: from startups to established companies, on your budget, with a free first meeting.",
     },
     terms: {
       title: "Terms and Conditions | GCatcode",
@@ -158,16 +158,16 @@ export default {
     },
     newTabNote: "(opens WhatsApp in a new tab)",
     hero: {
-      eyebrow: "Custom technology solutions",
+      eyebrow: "Custom websites and software in Guadalajara",
       title: "Your business should grow, not get stuck on repetitive tasks.",
-      subtitle: "We build the technology you need to make the most of your time. Forget complicated, expensive software: at GCatcode we design digital solutions tailored to you, step by step, with results from the very first delivery.",
+      subtitle: "We build the technology you need to make the most of your time. Forget complicated, expensive software: at GCatcode we design digital solutions tailored to you and your budget, step by step, with results from the very first delivery.",
       primaryCta: "I want to optimize my business",
       secondaryCta: "Book your free meeting",
       note: "First meeting free and with no commitment, up to {minutes} minutes, online or in person in Zapopan and Guadalajara.",
     },
     problem: {
       title: "Sound familiar?",
-      intro: "Many small businesses lose hours every week for the same reasons:",
+      intro: "Many businesses, from startups to growing companies, lose hours every week for the same reasons:",
       items: [
         {
           title: "Repetitive manual tasks",
@@ -207,7 +207,7 @@ export default {
     },
     method: {
       title: "A method designed for your peace of mind and your budget.",
-      intro: "We don't sell you a huge, uncertain project. We work in short, clear cycles so you see results quickly and stay in control of your investment.",
+      intro: "We don't sell you a huge, uncertain project. We work in short, clear cycles, with fast development and continuous delivery, so you see results and stay in control of your investment.",
       points: {
         cycles: {
           title: "Fast deliveries ({cycleWeeks}-week cycles)",
@@ -273,7 +273,7 @@ export default {
       badge: "Free",
       details: [
         "Up to {minutes} minutes",
-        "Video call or in person in Zapopan and Guadalajara",
+        "Personalized attention by video call or in person in Zapopan and Guadalajara",
         "No commitment",
       ],
       cta: "Book my free meeting",
