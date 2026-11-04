@@ -40,7 +40,12 @@ const otherProjects = projects
   }));
 ---
 
-<Layout title={t.meta.projects.title} description={t.meta.projects.description}>
+<Layout
+  title={t.meta.projects.title}
+  description={t.meta.projects.description}
+  image="/CVBanner.jpg"
+  imageAlt={t.meta.shareImageAlt.cv}
+>
   <Header />
 
   <!-- 120px to the heading: 88px here plus the compact section's 32px. -->

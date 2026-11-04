@@ -53,6 +53,8 @@ export interface Dictionary {
     landing: { title: string; description: string };
     terms: { title: string; description: string };
     privacy: { title: string; description: string };
+    // Alt text of the Open Graph images: the GCatcode one (default) and the CV banner.
+    shareImageAlt: { business: string; cv: string };
   };
   nav: {
     home: string;
