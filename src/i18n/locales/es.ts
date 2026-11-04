@@ -11,8 +11,8 @@ export default {
       description: "Explora mis proyectos destacados, desde aplicaciones móviles con IA hasta plataformas comunitarias.",
     },
     landing: {
-      title: "GCatcode | Soluciones tecnológicas a tu medida",
-      description: "Creamos sitios web, apps móviles y sistemas de escritorio a la medida de tu negocio. Entregas cada {cycleWeeks} semanas, pagas por resultados y la primera cita es gratis, en línea o presencial en Zapopan y Guadalajara.",
+      title: "GCatcode | Páginas web en Guadalajara para crecer tu negocio",
+      description: "Hacemos crecer tu negocio con páginas web y apps en Guadalajara y Zapopan: del emprendimiento a la empresa, a tu presupuesto y con la primera cita gratis.",
     },
     terms: {
       title: "Términos y condiciones | GCatcode",
@@ -158,16 +158,16 @@ export default {
     },
     newTabNote: "(abre WhatsApp en una pestaña nueva)",
     hero: {
-      eyebrow: "Soluciones tecnológicas a tu medida",
+      eyebrow: "Páginas web y software a tu medida en Guadalajara",
       title: "Tu negocio debería crecer, no estancarse en tareas repetitivas.",
-      subtitle: "Creamos la tecnología que necesitas para optimizar tu tiempo. Olvídate del software complicado y caro: en GCatcode diseñamos soluciones digitales a tu medida, paso a paso, con resultados desde la primera entrega.",
+      subtitle: "Creamos la tecnología que necesitas para optimizar tu tiempo. Olvídate del software complicado y caro: en GCatcode diseñamos soluciones digitales a tu medida y a tu presupuesto, paso a paso, con resultados desde la primera entrega.",
       primaryCta: "Quiero optimizar mi negocio",
       secondaryCta: "Agenda tu cita gratis",
       note: "Primera cita gratis y sin compromiso, de hasta {minutes} minutos, en línea o presencial en Zapopan y Guadalajara.",
     },
     problem: {
       title: "¿Te suena familiar?",
-      intro: "Muchos negocios pequeños pierden horas cada semana por las mismas razones:",
+      intro: "Muchos negocios, desde emprendimientos hasta empresas en crecimiento, pierden horas cada semana por las mismas razones:",
       items: [
         {
           title: "Tareas manuales que se repiten",
@@ -207,7 +207,7 @@ export default {
     },
     method: {
       title: "Un método pensado para tu tranquilidad y tu presupuesto.",
-      intro: "No te vendemos un proyecto enorme e incierto. Trabajamos por ciclos cortos y claros para que veas resultados rápidos y mantengas el control de tu inversión.",
+      intro: "No te vendemos un proyecto enorme e incierto. Trabajamos por ciclos cortos y claros, con desarrollo rápido y entregas continuas, para que veas resultados y mantengas el control de tu inversión.",
       points: {
         cycles: {
           title: "Entregas rápidas (ciclos de {cycleWeeks} semanas)",
@@ -273,7 +273,7 @@ export default {
       badge: "Gratis",
       details: [
         "Hasta {minutes} minutos",
-        "Videollamada o presencial en Zapopan y Guadalajara",
+        "Atención personalizada por videollamada o en persona en Zapopan y Guadalajara",
         "Sin compromiso",
       ],
       cta: "Reservar mi cita gratis",
