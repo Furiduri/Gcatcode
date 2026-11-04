@@ -4,13 +4,16 @@
 import "@fontsource-variable/inter";
 import "@fontsource-variable/outfit";
 import "../styles/global.css";
-import { defaultLocale, hreflangByLocale, locales } from "../i18n/config";
-import { getLocalizedUrl, getUnlocalizedPath, resolveLocale } from "../i18n/utils";
+import { defaultLocale, hreflangByLocale, locales, ogLocaleByLocale } from "../i18n/config";
+import { getLocalizedUrl, getUnlocalizedPath, resolveLocale, useTranslations } from "../i18n/utils";
 
 interface Props {
   title: string;
   description?: string;
+  // Open Graph image, 1200x630. Defaults to the GCatcode image of the current
+  // locale; a page passing its own image also passes its alt text.
   image?: string;
+  imageAlt?: string;
   type?: string;
   // Pages that must not be indexed (the 404 page): no canonical, no hreflang
   // alternates and a robots noindex tag.
@@ -20,13 +23,17 @@ interface Props {
 const {
   title,
   description = "Jorge Osvaldo Perez Mendoza - Portfolio",
-  image = "/CVBanner.jpg",
+  image,
+  imageAlt,
   type = "website",
   noindex = false,
 } = Astro.props;
 
 const url = Astro.url;
 const locale = resolveLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const shareImage = new URL(image ?? `/og-gcatcode-${locale}.jpg`, Astro.site || url.origin);
+const shareImageAlt = image ? imageAlt : t.meta.shareImageAlt.business;
 const canonicalURL = new URL(url.pathname, Astro.site || url.origin);
 
 // Same route in every configured locale, for hreflang alternates.
@@ -43,7 +50,10 @@ const defaultAlternate = new URL(getLocalizedUrl(defaultLocale, unlocalizedPath)
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
 
     {noindex ? (
@@ -64,28 +74,31 @@ const defaultAlternate = new URL(getLocalizedUrl(defaultLocale, unlocalizedPath)
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
-    <meta name="image" content={new URL(image, Astro.site || url.origin)} />
+    <meta name="image" content={shareImage} />
     <meta name="description" content={description} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="GCatcode" />
+    <meta property="og:locale" content={ogLocaleByLocale[locale]} />
+    {locales.filter((alternateLocale) => alternateLocale !== locale).map((alternateLocale) => (
+      <meta property="og:locale:alternate" content={ogLocaleByLocale[alternateLocale]} />
+    ))}
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta
-      property="og:image"
-      content={new URL(image, Astro.site || url.origin)}
-    />
+    <meta property="og:image" content={shareImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    {shareImageAlt && <meta property="og:image:alt" content={shareImageAlt} />}
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta
-      property="twitter:image"
-      content={new URL(image, Astro.site || url.origin)}
-    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={shareImage} />
+    {shareImageAlt && <meta name="twitter:image:alt" content={shareImageAlt} />}
   </head>
   <body class="min-h-screen">
     <div class="fixed inset-0 -z-10 h-full w-full bg-zinc-950">

@@ -9,6 +9,12 @@ export const hreflangByLocale = {
 
 export type Locale = keyof typeof hreflangByLocale;
 
+// Open Graph locale (language_TERRITORY) for each locale.
+export const ogLocaleByLocale: Record<Locale, string> = {
+  en: "en_US",
+  es: "es_MX",
+};
+
 export const locales = Object.keys(hreflangByLocale) as Locale[];
 
 export const defaultLocale: Locale = "es";

@@ -22,6 +22,10 @@ export default {
       title: "Aviso de privacidad | GCatcode",
       description: "Aviso de privacidad integral de GCatcode: qué datos personales recabamos, para qué los usamos y cómo ejercer tus derechos ARCO.",
     },
+    shareImageAlt: {
+      business: "Logo de GCatcode con el texto: Páginas web en Guadalajara para crecer tu negocio",
+      cv: "Logo de GCatcode con el nombre de Jorge Osvaldo Perez Mendoza, Software Development Engineer",
+    },
   },
   nav: {
     home: "Inicio",
