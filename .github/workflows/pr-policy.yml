@@ -1,0 +1,69 @@
+name: PR Policy
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize, labeled, unlabeled]
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  policy:
+    name: PR policy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Body links an issue with Closes or Refs
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if ! printf '%s' "$PR_BODY" | grep -Eiq '(^|[^[:alnum:]_])(closes|refs)[[:space:]]+#[0-9]+'; then
+            echo "::error::The PR body must contain 'Closes #N' or 'Refs #N'."
+            exit 1
+          fi
+
+      - name: Refs requires a pending-work comment on the issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          if printf '%s' "$PR_BODY" | grep -Eiq '(^|[^[:alnum:]_])closes[[:space:]]+#[0-9]+'; then
+            echo "Closes: no pending-work comment needed."
+            exit 0
+          fi
+          ISSUE=$(printf '%s' "$PR_BODY" | grep -Eio 'refs[[:space:]]+#[0-9]+' | head -1 | grep -Eo '[0-9]+$')
+          # The comment must start with "## Pending work" and be newer than the PR's first commit.
+          SINCE=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json commits --jq '.commits[0].committedDate')
+          COUNT=$(gh issue view "$ISSUE" --repo "$REPO" --json comments \
+            --jq "[.comments[] | select(.createdAt >= \"$SINCE\" and (.body | startswith(\"## Pending work\")))] | length")
+          if [ "$COUNT" -eq 0 ]; then
+            echo "::error::Refs #$ISSUE: add an issue comment starting with '## Pending work' explaining why it stays open and what remains."
+            exit 1
+          fi
+
+      - name: Exactly one type:* label
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          COUNT=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json labels \
+            --jq '[.labels[].name | select(startswith("type:"))] | length')
+          if [ "$COUNT" -ne 1 ]; then
+            echo "::error::The PR needs exactly one type:* label (found $COUNT)."
+            exit 1
+          fi
+
+      - name: Warn above 400 changed lines
+        continue-on-error: true
+        env:
+          ADDITIONS: ${{ github.event.pull_request.additions }}
+          DELETIONS: ${{ github.event.pull_request.deletions }}
+        run: |
+          CHANGED=$((ADDITIONS + DELETIONS))
+          if [ "$CHANGED" -gt 400 ]; then
+            echo "::warning::$CHANGED changed lines (> 400). Consider chained PRs."
+          fi

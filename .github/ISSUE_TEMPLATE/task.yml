@@ -1,0 +1,40 @@
+name: Task
+description: Docs, refactor, tests, tooling, CI or performance work with no visible behavior change.
+title: '<type>(<scope>): <summary>'
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      description: The matching type:* label is applied at triage.
+      options:
+        - docs
+        - refactor
+        - test
+        - chore
+        - ci
+        - perf
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why this task is needed now.
+    validations:
+      required: true
+  - type: textarea
+    id: closing-criteria
+    attributes:
+      label: Closing criteria
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Write "None" if there are none.
+    validations:
+      required: true

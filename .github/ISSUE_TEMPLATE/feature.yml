@@ -1,0 +1,37 @@
+name: Feature
+description: A new capability or a visible improvement.
+title: 'feat(<scope>): <summary>'
+labels: ['type:feat']
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Facts, not opinions. What need exists today and what evidence supports it?
+    validations:
+      required: true
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: Use cases
+      value: |
+        As a <role>, I want <action>, so that <benefit>.
+        - Given <state>, when <action>, then <verifiable result>.
+    validations:
+      required: true
+  - type: textarea
+    id: closing-criteria
+    attributes:
+      label: Closing criteria
+      description: Verifiable checkboxes. The PR uses `Closes #N` only when all are met.
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Issues this depends on or blocks. Write "None" if there are none.
+    validations:
+      required: true

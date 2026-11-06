@@ -1,10 +1,10 @@
 ---
-name: skill-content
+name: gcatcode-content
 description: "Trigger: editing site copy, skills, projects or experience, either README, SEO meta tags, or adding a page in the CV portfolio. Apply the content, bilingual parity and styling rules."
 license: Apache-2.0
 metadata:
   author: "Furiduri"
-  version: "1.0"
+  version: "1.1"
 ---
 
 ## Activation Contract
@@ -122,5 +122,5 @@ language.
 - `src/styles/global.css` — design tokens and base styles.
 - `docs/adr/0001-arquitectura-modular-de-componentes.md` — modular pages and components.
 - `astro.config.mjs` — `site`, i18n routing and sitemap (fed by `src/i18n/config.ts`).
-- `.claude/skills/skill-workflow/SKILL.md` — role split and verification discipline.
-- `.claude/skills/skill-pr/SKILL.md` — branch and pull request rules.
+- `.claude/skills/gcatcode-workflow/SKILL.md` — role split and verification discipline.
+- `.claude/skills/gcatcode-pr/SKILL.md` — issue, branch, commit and pull request rules.

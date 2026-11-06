@@ -1,6 +1,6 @@
 name: ADR status
 # An ADR must be accepted (or rejected) before the PR that adds it is merged
-# (ADR-0000, skill-docs). Fails while any ADR or index row is still "Propuesta".
+# (ADR-0000, gcatcode-docs). Fails while any ADR or index row is still "Propuesta".
 # Runs on every PR (no paths filter): it is a required check on main, and a
 # required check that never runs leaves the PR waiting forever.
 on: pull_request

@@ -1,0 +1,65 @@
+# Human review gate: fails until the maintainer marks every changed file as
+# "Viewed" in the PR's "Files changed" tab. A new push resets changed files to
+# DISMISSED, so the gate fails again until they are reviewed again.
+#
+# viewerViewedState is per user, so this needs a token of the reviewer, not
+# GITHUB_TOKEN: secret REVIEW_GATE_TOKEN = fine-grained PAT of the maintainer
+# with read-only "Pull requests" access to this repository.
+#
+# After marking files as viewed, submit a review (or re-run this job);
+# review-gate-rerun.yml re-runs it automatically on review submission.
+name: Review Gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: review-gate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  files-viewed:
+    name: All files viewed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check every changed file is marked as viewed
+        env:
+          GH_TOKEN: ${{ secrets.REVIEW_GATE_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Missing secret REVIEW_GATE_TOKEN (maintainer PAT, read-only Pull requests)."
+            exit 1
+          fi
+          gh api graphql --paginate \
+            -F owner="$OWNER" -F repo="$REPO" -F pr="$PR" \
+            -f query='query($owner:String!,$repo:String!,$pr:Int!,$endCursor:String){
+              repository(owner:$owner,name:$repo){ pullRequest(number:$pr){
+                files(first:100, after:$endCursor){
+                  pageInfo{ hasNextPage endCursor }
+                  nodes{ path viewerViewedState }
+                }}}}' \
+            --jq '.data.repository.pullRequest.files.nodes[] | "\(.viewerViewedState)\t\(.path)"' > files.tsv
+
+          total=$(wc -l < files.tsv)
+          pending=$(grep -v '^VIEWED' files.tsv || true)
+          if [ -n "$pending" ]; then
+            count=$(printf '%s\n' "$pending" | wc -l)
+            echo "::error::$count of $total files are not marked as Viewed."
+            printf '%s\n' "$pending" | while IFS=$'\t' read -r state path; do
+              echo "::error file=$path::$state"
+            done
+            {
+              echo "### Review pending: $count of $total files"
+              echo
+              printf '%s\n' "$pending" | sed 's/^\([A-Z]*\)\t\(.*\)$/- `\2` (\1)/'
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          echo "All $total files are marked as Viewed."

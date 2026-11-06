@@ -1,0 +1,33 @@
+# Re-runs the latest "Review Gate" run of the PR's head commit when a review is
+# submitted, so the maintainer does not need to re-run it by hand after marking
+# files as Viewed. Kept in a separate workflow so a skipped job can never count
+# as a passing "All files viewed" check.
+name: Review Gate Rerun
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  rerun:
+    name: Re-run review gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Re-run Review Gate for the head commit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          RUN_ID=$(gh run list --repo "$REPO" --workflow review-gate.yml --commit "$HEAD_SHA" \
+            --json databaseId --jq '.[0].databaseId')
+          if [ -z "$RUN_ID" ]; then
+            echo "::warning::No Review Gate run found for $HEAD_SHA."
+            exit 0
+          fi
+          gh run rerun "$RUN_ID" --repo "$REPO"
+          echo "Re-ran Review Gate run $RUN_ID."
