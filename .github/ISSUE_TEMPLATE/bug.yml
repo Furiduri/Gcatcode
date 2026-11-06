@@ -1,0 +1,36 @@
+name: Bug
+description: Something that does not work as expected.
+title: 'fix(<scope>): <summary>'
+labels: ['type:fix']
+body:
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happens, with evidence (URL, screenshot, log, commit).
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+    validations:
+      required: true
+  - type: textarea
+    id: closing-criteria
+    attributes:
+      label: Closing criteria
+      description: Include a regression test when feasible.
+      value: |
+        - [ ] Failing test reproduces the bug
+        - [ ]
+    validations:
+      required: true
