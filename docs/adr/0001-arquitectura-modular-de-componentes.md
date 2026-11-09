@@ -104,7 +104,7 @@ solo para el armazón del sitio (punto 5 de la decisión).
 - El código existente no cumple todavía: `cv/index.astro`, `cv/projects/` y
   las clases `.glass-card` y `.btn-primary` (issue #21).
 - Ningún chequeo automático hace cumplir esta regla; depende de la revisión y
-  de la skill `skill-content`.
+  de la skill `gcatcode-content`.
 - Los tipos de las props no se verifican en el build: `npm run build` no corre
   `astro check` ni `tsc`, y el CI solo ejecuta `npm run build`. Una prop mal
   pasada se detecta en el editor o al renderizar, no antes.
