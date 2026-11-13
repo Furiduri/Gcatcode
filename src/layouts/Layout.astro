@@ -99,6 +99,9 @@ const defaultAlternate = new URL(getLocalizedUrl(defaultLocale, unlocalizedPath)
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={shareImage} />
     {shareImageAlt && <meta name="twitter:image:alt" content={shareImageAlt} />}
+
+    <!-- Page-specific head content, e.g. structured data. -->
+    <slot name="head" />
   </head>
   <body class="min-h-screen">
     <div class="fixed inset-0 -z-10 h-full w-full bg-zinc-950">

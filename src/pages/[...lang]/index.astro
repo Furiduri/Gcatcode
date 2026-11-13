@@ -4,19 +4,20 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import CaseStudy from "../../components/case-study/CaseStudy.astro";
 import FaqSection from "../../components/landing/FaqSection.astro";
 import FinalCtaSection from "../../components/landing/FinalCtaSection.astro";
 import FreeCallSection from "../../components/landing/FreeCallSection.astro";
 import LandingHero from "../../components/landing/LandingHero.astro";
 import MethodSection from "../../components/landing/MethodSection.astro";
 import ProblemSection from "../../components/landing/ProblemSection.astro";
+import ProjectsGallerySection from "../../components/landing/ProjectsGallerySection.astro";
 import ServicesSection from "../../components/landing/ServicesSection.astro";
 import TrustSection from "../../components/landing/TrustSection.astro";
 import WebsitesSection from "../../components/landing/WebsitesSection.astro";
 import PhotoCredits from "../../components/ui/PhotoCredits.astro";
 import { business, businessPlaceholders, mailtoUrl, whatsappUrl } from "../../data/business";
-import { caseStudies } from "../../data/caseStudies";
+import { caseStudies, caseStudyIds } from "../../data/caseStudies";
+import { projects } from "../../data/projects";
 import { landingPhotos, unsplashUrl } from "../../data/landingPhotos";
 import { experienceYears } from "../../data/profile";
 import type { Locale } from "../../i18n/config";
@@ -44,7 +45,16 @@ const links = {
   website: whatsappUrl(l.whatsappMessages.website),
   terms: getLocalizedUrl(lang, "terminos"),
   privacy: getLocalizedUrl(lang, "privacidad"),
+  projects: getLocalizedUrl(lang, "projects"),
 };
+// Case study tiles; each one opens its project on the projects page.
+const galleryItems = caseStudyIds.map((id) => ({
+  id,
+  title: projects.find((project) => project.id === id)?.title ?? caseStudies[id].name,
+  href: `${links.projects}#${id}`,
+  tags: t.projects[id].tags,
+  image: { src: caseStudies[id].screenshots.desktop, alt: t.caseStudies[id].images.desktop },
+}));
 const photoAuthors = Object.values(landingPhotos).map((photo) => ({ name: photo.author, url: photo.authorUrl }));
 ---
 
@@ -67,12 +77,7 @@ const photoAuthors = Object.values(landingPhotos).map((photo) => ({ name: photo.
     <ProblemSection copy={l.problem} photo={landingPhotos.problem} photoAlt={l.images.problem} />
     <ServicesSection id="services" copy={l.services} photo={landingPhotos.services} photoAlt={l.images.services} />
     <MethodSection id="method" copy={l.method} photo={landingPhotos.method} photoAlt={l.images.method} />
-    <CaseStudy id="case-study" copy={formatDeep(t.caseStudies.juegalajara, values)} study={caseStudies.juegalajara} />
-    <CaseStudy
-      id="case-study-creepy-boardday"
-      copy={formatDeep(t.caseStudies.creepyBoardDay, values)}
-      study={caseStudies.creepyBoardDay}
-    />
+    <ProjectsGallerySection id="case-study" copy={l.projects} items={galleryItems} viewAllHref={links.projects} />
     <TrustSection copy={l.trust} privacyHref={links.privacy} termsHref={links.terms} />
     <WebsitesSection
       id="websites"

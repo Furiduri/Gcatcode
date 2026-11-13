@@ -7,8 +7,8 @@ export default {
       description: "Ingeniero en Desarrollo de Software con licencia profesional y más de {years} años de experiencia creando sistemas backend de alto rendimiento, APIs web y soluciones empresariales en la nube.",
     },
     projects: {
-      title: "Proyectos | Jorge Osvaldo Perez Mendoza",
-      description: "Explora mis proyectos destacados, desde aplicaciones móviles con IA hasta plataformas comunitarias.",
+      title: "Proyectos y casos reales | GCatcode",
+      description: "Páginas web y plataformas hechas por GCatcode en Guadalajara, como Crotona Pizza & Café y Juegalajara: el reto, lo que construimos y el resultado de cada proyecto.",
     },
     landing: {
       title: "GCatcode | Páginas web en Guadalajara para crecer tu negocio",
@@ -103,15 +103,20 @@ export default {
       description: "Sitio de evento y manual de juego. Desarrollo del sitio del evento de Halloween de Juegalajara y del manual del juego de roles ocultos creado para esa noche, con reserva por WhatsApp, itinerario en tiempo real y buscador de roles.",
       tags: ["Astro", "Eventos", "Juegos de Mesa"],
     },
+    crotona: {
+      description: "Página web para negocio local. Sitio de una página para una pizzería de Chapalita que llevaba tiempo sin página web: invita a preguntar por WhatsApp por la comida del día, con SEO local, dominio propio y logo vectorizado.",
+      tags: ["Astro", "SEO local", "Negocio local"],
+    },
     gcatcode: {
       description: "Plataformas Web y Portafolio. Construcción de plataformas web responsivas utilizando Astro, Tailwind CSS y TypeScript, alcanzando métricas de alto rendimiento en Lighthouse.",
       tags: ["Astro", "Tailwind CSS", "TypeScript"],
     },
   },
   projectsPage: {
-    heading: "Proyectos Destacados",
-    intro: "Una colección de mis trabajos recientes que abarcan ingeniería de IA, desarrollo web y plataformas comunitarias.",
-    moreProjects: "Más proyectos",
+    heading: "Proyectos",
+    intro: "Todo lo que hemos construido hasta ahora: páginas web para negocios locales, plataformas para comunidades y apps propias. Elige uno para ver el detalle.",
+    backToAll: "Volver a todos los proyectos",
+    visitLabel: "Visitar el proyecto",
   },
   education: {
     graduatedLabel: "Graduado",
@@ -226,6 +231,11 @@ export default {
           text: "¿Tuviste una idea nueva? Si aún no empezamos un módulo, lo cambiamos: solo ajustamos su cotización, sin cargos por el cambio.",
         },
       },
+    },
+    projects: {
+      title: "Proyectos que ya están en línea.",
+      intro: "Páginas y plataformas que hicimos para negocios y comunidades de Guadalajara. Abre uno para ver el reto, lo que construimos y el resultado.",
+      viewAll: "Ver todos los proyectos",
     },
     trust: {
       title: "Tu información y tu negocio están seguros.",
@@ -401,6 +411,29 @@ export default {
       images: {
         desktop: "Página de inicio de creepyboardday.web.app en una computadora",
         mobile: "Página de inicio de creepyboardday.web.app en un celular",
+      },
+    },
+    crotona: {
+      eyebrow: "Caso real",
+      title: "Crotona Pizza & Café: de vuelta en internet, con un camino directo al WhatsApp",
+      intro: "Hicimos la página web de Crotona Pizza & Café, una pizzería con terraza en Chapalita, Guadalajara: desde el análisis y la identidad digital hasta el dominio y la publicación.",
+      challengeLabel: "El reto",
+      challenge: "El negocio llevaba tiempo sin página web. Quien lo buscaba en internet no encontraba su horario, su ubicación ni su carta, y su mejor gancho, la comida del día que no aparece en el menú, solo lo conocían los clientes de siempre.",
+      solutionLabel: "Lo que construimos",
+      solution: "Una página única, estática y rápida, pensada para que el visitante escriba por WhatsApp y llegue al local:",
+      features: [
+        "Botones de WhatsApp con el mensaje ya escrito, uno distinto por botón para saber de dónde llega cada chat.",
+        "Carta, galería de la terraza, mapa y horario con aviso de \"abierto ahora\" calculado con la hora de Guadalajara.",
+        "SEO local: metadatos, datos estructurados de restaurante con horario y sitemap, en su propio dominio crotona.mx.",
+        "Logo vectorizado a partir del original, íconos, imagen para redes y guía de identidad.",
+      ],
+      resultLabel: "El resultado",
+      result: "Crotona vuelve a tener su propia página web, con un camino directo de la búsqueda al WhatsApp. El proyecto se liquidó a precio normal, sin promociones, así que el código fuente es del cliente.",
+      stackLabel: "Tecnologías",
+      linkLabel: "Visitar crotona.mx",
+      images: {
+        desktop: "Página de inicio de crotona.mx en una computadora",
+        mobile: "Página de inicio de crotona.mx en un celular",
       },
     },
   },

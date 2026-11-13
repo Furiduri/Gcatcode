@@ -8,8 +8,13 @@
     ],
     "redirects": [
       {
-        "regex": "^/projects/?$",
-        "destination": "/en/cv/projects/",
+        "regex": "^/cv/projects/?$",
+        "destination": "/projects/",
+        "type": 301
+      },
+      {
+        "regex": "^/en/cv/projects/?$",
+        "destination": "/en/projects/",
         "type": 301
       },
       {
@@ -19,7 +24,7 @@
       },
       {
         "regex": "^/es/projects/?$",
-        "destination": "/cv/projects/",
+        "destination": "/projects/",
         "type": 301
       }
     ]

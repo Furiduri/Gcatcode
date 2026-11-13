@@ -1,0 +1,87 @@
+---
+// Projects page. Container only (ADR-0001): it joins the project data with the
+// dictionary and composes the mosaic. Case studies come first, in showcase
+// order; `/projects/#<id>` opens that project.
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import ProjectMosaic, { type MosaicItem } from "../../../components/projects/ProjectMosaic.astro";
+import PageHeader from "../../../components/ui/PageHeader.astro";
+import Section from "../../../components/ui/Section.astro";
+import { businessPlaceholders } from "../../../data/business";
+import { caseStudies, caseStudyIds, hasCaseStudy } from "../../../data/caseStudies";
+import { projects } from "../../../data/projects";
+import type { Locale } from "../../../i18n/config";
+import { formatDeep, getLocaleStaticPaths, getLocalizedUrl, useTranslations } from "../../../i18n/utils";
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const page = t.projectsPage;
+
+const projectById = Object.fromEntries(projects.map((project) => [project.id, project]));
+const orderedIds = [...caseStudyIds, ...projects.map((project) => project.id).filter((id) => !hasCaseStudy(id))];
+
+const items: MosaicItem[] = orderedIds.map((id) => {
+  const project = projectById[id];
+  const base = { id, title: project.title, href: `#${id}`, tags: t.projects[id].tags };
+  if (hasCaseStudy(id)) {
+    const copy = formatDeep(t.caseStudies[id], businessPlaceholders);
+    const study = caseStudies[id];
+    return {
+      ...base,
+      image: { src: study.screenshots.desktop, alt: copy.images.desktop },
+      detail: { kind: "caseStudy", copy, study },
+    };
+  }
+  return {
+    ...base,
+    detail: { kind: "summary", description: t.projects[id].description, link: project.link, linkLabel: page.visitLabel },
+  };
+});
+
+const pageUrl = new URL(getLocalizedUrl(lang, "projects"), Astro.site);
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: t.meta.projects.title,
+  description: t.meta.projects.description,
+  url: pageUrl.href,
+  inLanguage: lang,
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: orderedIds.map((id, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: new URL(`#${id}`, pageUrl).href,
+      item: {
+        "@type": "CreativeWork",
+        name: projectById[id].title,
+        url: projectById[id].link,
+        description: t.projects[id].description,
+      },
+    })),
+  },
+};
+---
+
+<Layout title={t.meta.projects.title} description={t.meta.projects.description}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <Header variant="landing" />
+
+  <main class="min-h-[70vh] pt-[88px]">
+    <Section labelledby="projects-title">
+      <PageHeader id="projects-title" title={page.heading} intro={page.intro} />
+      <ProjectMosaic id="projects-mosaic" items={items} layout="page" expandable backLabel={page.backToAll} />
+    </Section>
+  </main>
+
+  <Footer variant="landing" />
+</Layout>

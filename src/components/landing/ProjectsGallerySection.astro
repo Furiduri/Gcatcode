@@ -1,0 +1,31 @@
+---
+import ProjectMosaic, { type MosaicItem } from "../projects/ProjectMosaic.astro";
+import Button from "../ui/Button.astro";
+import Glow from "../ui/Glow.astro";
+import Section from "../ui/Section.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+// Landing gallery of the case studies: compact tiles that open each project on
+// the projects page, plus a link to every project.
+interface Props {
+  id: string;
+  copy: { title: string; intro: string; viewAll: string };
+  items: MosaicItem[];
+  viewAllHref: string;
+}
+
+const { id, copy, items, viewAllHref } = Astro.props;
+const headingId = `${id}-title`;
+---
+
+<Section id={id} labelledby={headingId} tone="band">
+  <Glow slot="background" class="-left-40 top-1/3 bg-brand-base/10" />
+  <div class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+    <div class="max-w-2xl">
+      <SectionHeading id={headingId}>{copy.title}</SectionHeading>
+      <p class="m-0 text-lg text-zinc-300">{copy.intro}</p>
+    </div>
+    <Button href={viewAllHref} variant="secondary" class="shrink-0">{copy.viewAll}</Button>
+  </div>
+  <ProjectMosaic id={`${id}-mosaic`} items={items} layout="teaser" headingLevel={3} />
+</Section>
