@@ -18,7 +18,7 @@ component.
 
 - **One template per route; copy lives in dictionaries.** Each route has a
   single template under `src/pages/[...lang]/` (`index.astro` for the GCatcode
-  landing, `terminos/`, `privacidad/`, `cv/`, `cv/projects/`) whose
+  landing, `projects/`, `terminos/`, `privacidad/`, `cv/`) whose
   `getStaticPaths` emits one page per configured locale. Route slugs are not
   translated. The default locale is Spanish (`es`, unprefixed: `/`, `/cv/`);
   English lives under `/en/` (`/en/`, `/en/cv/`). Visible copy lives in
@@ -102,8 +102,8 @@ component.
 2. Make the change in every dictionary (and the shared data, if a fact changed);
    keep keys and array lengths identical.
 3. `npm run build` (it fails on dictionary drift); then check every locale of the
-   route in the preview (`/cv/` and `/en/cv/`, `/cv/projects/` and
-   `/en/cv/projects/`), desktop
+   route in the preview (`/cv/` and `/en/cv/`, `/projects/` and
+   `/en/projects/`), desktop
    and mobile width.
 4. If a README changed, check parity and every claim against the repo.
 

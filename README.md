@@ -24,7 +24,7 @@ The site is designed to be fast, accessible, and optimized for search engines (S
 | --- | --- | --- |
 | GCatcode landing | `/` | `/en/` |
 | CV | `/cv/` | `/en/cv/` |
-| Projects | `/cv/projects/` | `/en/cv/projects/` |
+| Projects | `/projects/` | `/en/projects/` |
 | Terms and conditions | `/terminos/` | `/en/terminos/` |
 | Privacy notice | `/privacidad/` | `/en/privacidad/` |
 

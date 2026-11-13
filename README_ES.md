@@ -24,7 +24,7 @@ El sitio está diseñado para ser rápido, accesible y optimizado para motores d
 | --- | --- | --- |
 | Landing de GCatcode | `/` | `/en/` |
 | CV | `/cv/` | `/en/cv/` |
-| Proyectos | `/cv/projects/` | `/en/cv/projects/` |
+| Proyectos | `/projects/` | `/en/projects/` |
 | Términos y condiciones | `/terminos/` | `/en/terminos/` |
 | Aviso de privacidad | `/privacidad/` | `/en/privacidad/` |
 

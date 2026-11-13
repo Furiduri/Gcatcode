@@ -7,7 +7,7 @@ Guide for AI agents working on this repository. Claude Code loads it through
 
 Personal and business site at **gcatcode.com**: the GCatcode landing
 (development services, consulting and static websites for local businesses in
-Zapopan/Guadalajara), the owner's CV at `/cv/` and `/cv/projects/`, and the
+Zapopan/Guadalajara), the projects mosaic at `/projects/`, the owner's CV at `/cv/`, and the
 terms and privacy pages. The agent is the developer; the owner decides what the
 site says about them and their business, and reviews what is delivered.
 
