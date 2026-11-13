@@ -1,0 +1,254 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import DeviceShowcase from "../case-study/DeviceShowcase.astro";
+import Button from "../ui/Button.astro";
+import Card from "../ui/Card.astro";
+import CheckList from "../ui/CheckList.astro";
+import TechPill from "../ui/TechPill.astro";
+import type { CaseStudyData } from "../../data/caseStudies";
+import type { CaseStudyCopy } from "../../i18n/types";
+
+// Project mosaic: a matrix of tiles separated by green hairlines. Every tile
+// links to `href`. With `expandable`, each tile also carries its detail and the
+// tile named by the URL hash (`/projects/#crotona`) opens across the full
+// width at the top of the mosaic; with no hash, the first tile opens. Pure CSS
+// (`:target`, `:has`), so it works without JavaScript and the detail of every
+// project is in the HTML for search engines.
+interface CaseStudyDetail {
+  kind: "caseStudy";
+  copy: CaseStudyCopy;
+  study: CaseStudyData;
+}
+
+interface SummaryDetail {
+  kind: "summary";
+  description: string;
+  link: string;
+  linkLabel: string;
+}
+
+export type MosaicDetail = CaseStudyDetail | SummaryDetail;
+
+export interface MosaicItem {
+  id: string;
+  title: string;
+  href: string;
+  tags: string[];
+  image?: { src: ImageMetadata; alt: string };
+  detail?: MosaicDetail;
+}
+
+interface Props {
+  id: string;
+  items: MosaicItem[];
+  // "page": the full mosaic (/projects); "teaser": the landing gallery.
+  layout: "page" | "teaser";
+  expandable?: boolean;
+  headingLevel?: 2 | 3;
+  // Label of the link that leaves an open tile and returns to the mosaic.
+  backLabel?: string;
+  class?: string;
+}
+
+const { id, items, layout, expandable = false, headingLevel = 2, backLabel, class: className } = Astro.props;
+const Heading = `h${headingLevel}` as "h2" | "h3";
+
+// Decorative "digital rain" for tiles without a screenshot: deterministic per
+// project, so every build renders the same glyphs.
+const glyphSet = "01アイウエオカキクケコサシスセソタチツテトナニヌネノ<>/{}";
+function glyphRain(seed: string, rows = 9, cols = 22): string {
+  let state = [...seed].reduce((acc, char) => (acc * 31 + char.charCodeAt(0)) >>> 0, 7);
+  // LCG; the high bits are the random ones.
+  const next = () => ((state = (state * 1103515245 + 12345) >>> 0) >>> 16) % glyphSet.length;
+  return Array.from({ length: rows }, () => Array.from({ length: cols }, () => glyphSet[next()]).join(" ")).join("\n");
+}
+
+// Tiles grow to fill their row, so any number of projects (and any open
+// tile) leaves no empty cell: screenshots take about half a row, the others a
+// third.
+const tileBasis = (item: MosaicItem) => (layout === "teaser" || !item.image ? "30%" : "45%");
+---
+
+<div
+  id={id}
+  data-expandable={expandable ? "" : undefined}
+  class:list={[
+    "mosaic flex scroll-mt-24 flex-wrap gap-px overflow-hidden rounded-2xl border border-brand-base/30 bg-brand-base/25",
+    className,
+  ]}
+>
+  {items.map((item, index) => (
+    <article
+      id={expandable ? item.id : undefined}
+      data-default={expandable && index === 0 ? "" : undefined}
+      aria-labelledby={`${item.id}-tile-title`}
+      style={`--tile-basis: ${tileBasis(item)}`}
+      class="tile group relative min-w-0 scroll-mt-24 bg-zinc-950"
+    >
+      <a href={item.href} class="tile-summary flex h-full flex-col text-inherit no-underline hover:text-inherit hover:drop-shadow-none">
+        <div class:list={["relative overflow-hidden border-b border-brand-base/20 bg-zinc-950", item.image ? "h-52 lg:h-72" : "h-40 lg:h-52"]}>
+          {item.image ? (
+            <Image
+              src={item.image.src}
+              alt={item.image.alt}
+              widths={[480, 720, 960]}
+              sizes={layout === "teaser" ? "(min-width: 768px) 33vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
+              class="h-full w-full object-cover object-top opacity-80 transition-opacity duration-300 group-hover:opacity-100"
+            />
+          ) : (
+            <pre aria-hidden="true" class="rain m-0 h-full overflow-hidden p-4 font-mono text-sm leading-6 text-brand-base/40 transition-colors duration-300 group-hover:text-brand-neon/60">{glyphRain(item.id)}</pre>
+          )}
+          <span aria-hidden="true" class="scanlines pointer-events-none absolute inset-0"></span>
+        </div>
+        <div class="flex flex-1 flex-col p-5">
+          <Heading id={`${item.id}-tile-title`} class="mb-3 text-xl transition-colors duration-300 group-hover:text-brand-neon">{item.title}</Heading>
+          <ul class="m-0 mt-auto flex list-none flex-wrap gap-2 p-0">
+            {item.tags.map((tag) => (
+              <li class="rounded-full border border-brand-base/20 bg-brand-base/10 px-3 py-0.5 text-sm text-brand-neon">{tag}</li>
+            ))}
+          </ul>
+        </div>
+      </a>
+
+      {expandable && item.detail && (
+        <div class="tile-detail p-6 md:p-10">
+          {item.detail.kind === "caseStudy" ? (
+            <Fragment>
+              <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+                <div class="mb-12 max-w-3xl">
+                  <Heading class="text-3xl md:text-4xl">{item.detail.copy.title}</Heading>
+                  <p class="m-0 text-lg text-zinc-300">{item.detail.copy.intro}</p>
+                  <Button href={item.detail.study.url} variant="secondary" icon="external" external class="mt-8">
+                    {item.detail.copy.linkLabel}
+                  </Button>
+                </div>
+                <DeviceShowcase
+                  host={new URL(item.detail.study.url).host}
+                  desktop={item.detail.study.screenshots.desktop}
+                  mobile={item.detail.study.screenshots.mobile}
+                  desktopAlt={item.detail.copy.images.desktop}
+                  mobileAlt={item.detail.copy.images.mobile}
+                  href={item.detail.study.url}
+                  linkLabel={item.detail.copy.linkLabel}
+                />
+              </div>
+              <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                <Card>
+                  <h3 class="text-xl">{item.detail.copy.challengeLabel}</h3>
+                  <p class="m-0 text-zinc-300">{item.detail.copy.challenge}</p>
+                </Card>
+                <Card>
+                  <h3 class="text-xl">{item.detail.copy.solutionLabel}</h3>
+                  <p class="mb-4 text-zinc-300">{item.detail.copy.solution}</p>
+                  <CheckList items={item.detail.copy.features} class="text-zinc-200" />
+                </Card>
+                <Card>
+                  <h3 class="text-xl">{item.detail.copy.resultLabel}</h3>
+                  <p class="mb-6 text-zinc-300">{item.detail.copy.result}</p>
+                  <h4 class="mb-2 text-sm text-zinc-300">{item.detail.copy.stackLabel}</h4>
+                  <div class="flex flex-wrap gap-2">
+                    {item.detail.study.stack.map((tech) => <TechPill name={tech} />)}
+                  </div>
+                </Card>
+              </div>
+            </Fragment>
+          ) : (
+            <div class="max-w-3xl">
+              <Heading class="text-3xl md:text-4xl">{item.title}</Heading>
+              <p class="mb-6 text-lg text-zinc-300">{item.detail.description}</p>
+              <ul class="m-0 mb-8 flex list-none flex-wrap gap-2 p-0">
+                {item.tags.map((tag) => (
+                  <li class="rounded-full border border-brand-base/20 bg-brand-base/10 px-3 py-0.5 text-sm text-brand-neon">{tag}</li>
+                ))}
+              </ul>
+              <Button href={item.detail.link} variant="secondary" icon="external" external>{item.detail.linkLabel}</Button>
+            </div>
+          )}
+          {backLabel && (
+            <p class="mb-0 mt-10">
+              <a href={`#${id}`} class="font-semibold">{backLabel}</a>
+            </p>
+          )}
+        </div>
+      )}
+    </article>
+  ))}
+</div>
+
+<style>
+  /* Faint CRT scanlines over the tile media: the matrix texture of the mosaic. */
+  .scanlines {
+    background: repeating-linear-gradient(to bottom, transparent 0 2px, rgb(0 0 0 / 0.18) 2px 3px);
+  }
+
+  /* Glyph columns fade out as they fall, like the trail of a digital rain. */
+  .rain {
+    mask-image: linear-gradient(to bottom, #000 10%, transparent 95%);
+  }
+
+  .tile {
+    flex: 1 1 100%;
+    transition: box-shadow 300ms;
+  }
+
+  @media (min-width: 48rem) {
+    .tile {
+      flex-basis: var(--tile-basis);
+    }
+  }
+
+  .tile:hover {
+    box-shadow: inset 0 0 0 1px var(--color-brand-neon);
+  }
+
+  .tile-detail {
+    display: none;
+  }
+
+  /* The tile named by the hash (or the first one when there is none) opens
+     across the full width, at the top of the mosaic. */
+  .mosaic[data-expandable] > .tile:target,
+  .mosaic[data-expandable]:not(:has(> .tile:target)) > .tile[data-default] {
+    flex-basis: 100%;
+    order: -1;
+    background: radial-gradient(ellipse 70% 60% at 0% 0%, rgb(0 191 99 / 0.12), transparent 70%), var(--color-zinc-950);
+    box-shadow: none;
+  }
+
+  .mosaic[data-expandable] > .tile:target > .tile-summary,
+  .mosaic[data-expandable]:not(:has(> .tile:target)) > .tile[data-default] > .tile-summary {
+    display: none;
+  }
+
+  .mosaic[data-expandable] > .tile:target > .tile-detail,
+  .mosaic[data-expandable]:not(:has(> .tile:target)) > .tile[data-default] > .tile-detail {
+    display: block;
+  }
+
+  /* One scan sweep when a project is opened: the answer to the click. */
+  @media (prefers-reduced-motion: no-preference) {
+    .mosaic[data-expandable] > .tile:target::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 2px;
+      background: var(--color-brand-neon);
+      box-shadow: 0 0 16px 2px rgb(126 217 87 / 0.6);
+      pointer-events: none;
+      animation: scan 900ms ease-out forwards;
+    }
+  }
+
+  @keyframes scan {
+    from {
+      top: 0;
+      opacity: 1;
+    }
+    to {
+      top: 100%;
+      opacity: 0;
+    }
+  }
+</style>

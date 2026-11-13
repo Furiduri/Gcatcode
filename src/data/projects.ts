@@ -5,6 +5,7 @@ export const projects = [
   { id: "jalapenoLab", title: "Jalapeño Lab", link: "https://jalapenolab.mx/" },
   { id: "juegalajara", title: "Juegalajara", link: "https://juegalajara.mx/" },
   { id: "creepyBoardDay", title: "Creepy BoardDay", link: "https://creepyboardday.web.app/" },
+  { id: "crotona", title: "Crotona Pizza & Café", link: "https://crotona.mx/" },
   { id: "gcatcode", title: "GCatCode", link: "https://gcatcode.com/" },
 ] as const;
 

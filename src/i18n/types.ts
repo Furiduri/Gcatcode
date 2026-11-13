@@ -49,6 +49,7 @@ export interface CaseStudyCopy {
 export interface Dictionary {
   meta: {
     home: { title: string; description: string };
+    // The projects page (/projects).
     projects: { title: string; description: string };
     landing: { title: string; description: string };
     terms: { title: string; description: string };
@@ -94,6 +95,8 @@ export interface Dictionary {
       intro: string;
       points: { cycles: TitledText; results: TitledText; flexibility: TitledText };
     };
+    // Gallery of the case studies; each tile opens its project on /projects.
+    projects: { title: string; intro: string; viewAll: string };
     trust: {
       title: string;
       intro: string;
@@ -179,6 +182,7 @@ export interface Dictionary {
   caseStudies: {
     juegalajara: CaseStudyCopy;
     creepyBoardDay: CaseStudyCopy;
+    crotona: CaseStudyCopy;
   };
   legal: {
     updatedLabel: string;
@@ -205,11 +209,14 @@ export interface Dictionary {
   };
   experience: Record<ExperienceId, { role: string; bullets: string[] }>;
   projects: Record<ProjectId, { description: string; tags: string[] }>;
+  // Projects page (/projects): the mosaic of every project.
   projectsPage: {
     heading: string;
     intro: string;
-    // Heading of the cards shown after the case studies.
-    moreProjects: string;
+    // Link inside an open project that returns to the mosaic.
+    backToAll: string;
+    // Link to a project that has no case study.
+    visitLabel: string;
   };
   education: {
     graduatedLabel: string;

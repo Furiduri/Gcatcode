@@ -7,8 +7,8 @@ export default {
       description: "Licensed Software Development Engineer with {years}+ years of experience delivering high-performance backend systems, web APIs, and enterprise cloud solutions.",
     },
     projects: {
-      title: "Projects | Jorge Osvaldo Perez Mendoza",
-      description: "Explore my featured projects, from AI-powered mobile apps to community platforms.",
+      title: "Projects and case studies | GCatcode",
+      description: "Websites and platforms built by GCatcode in Guadalajara, such as Crotona Pizza & Café and Juegalajara: the challenge, what we built and the result of each project.",
     },
     landing: {
       title: "GCatcode | Websites in Guadalajara to grow your business",
@@ -103,15 +103,20 @@ export default {
       description: "Event Site & Game Manual. Built the site for Juegalajara's Halloween event and the manual for the hidden-role game created for that night, with WhatsApp booking, a live schedule and a role finder.",
       tags: ["Astro", "Events", "Board Games"],
     },
+    crotona: {
+      description: "Website for a Local Business. One-page site for a pizzeria in Chapalita that had been without a website for a while: it invites visitors to ask about the dish of the day on WhatsApp, with local SEO, its own domain and a vectorized logo.",
+      tags: ["Astro", "Local SEO", "Local Business"],
+    },
     gcatcode: {
       description: "Web Platforms & Portfolio. Built responsive web platforms using Astro, Tailwind CSS, and TypeScript, achieving high-performance Lighthouse metrics.",
       tags: ["Astro", "Tailwind CSS", "TypeScript"],
     },
   },
   projectsPage: {
-    heading: "Featured Projects",
-    intro: "A collection of my recent work spanning AI engineering, web development, and community platforms.",
-    moreProjects: "More projects",
+    heading: "Projects",
+    intro: "Everything we have built so far: websites for local businesses, platforms for communities and our own apps. Pick one to see its details.",
+    backToAll: "Back to all projects",
+    visitLabel: "Visit the project",
   },
   education: {
     graduatedLabel: "Graduated",
@@ -226,6 +231,11 @@ export default {
           text: "Got a new idea? If we haven't started a module yet, we change it: we only adjust its quote, with no fee for the change.",
         },
       },
+    },
+    projects: {
+      title: "Projects that are already live.",
+      intro: "Websites and platforms we built for businesses and communities in Guadalajara. Open one to see the challenge, what we built and the result.",
+      viewAll: "See all projects",
     },
     trust: {
       title: "Your information and your business are safe.",
@@ -401,6 +411,29 @@ export default {
       images: {
         desktop: "The creepyboardday.web.app home page on a computer",
         mobile: "The creepyboardday.web.app home page on a phone",
+      },
+    },
+    crotona: {
+      eyebrow: "Case study",
+      title: "Crotona Pizza & Café: back online, with a direct path to WhatsApp",
+      intro: "We built the website of Crotona Pizza & Café, a pizzeria with a terrace in Chapalita, Guadalajara: from the analysis and the digital identity to the domain and the launch.",
+      challengeLabel: "The challenge",
+      challenge: "The business had been without a website for a while. People searching for it online could not find its hours, location or menu, and its best hook, a dish of the day that is not on the menu, was known only to regulars.",
+      solutionLabel: "What we built",
+      solution: "A fast, static one-page site designed to get visitors to write on WhatsApp and come to the restaurant:",
+      features: [
+        "WhatsApp buttons with the message already written, a different one per button to know where each chat comes from.",
+        "Menu, terrace gallery, map and opening hours with an \"open now\" notice based on Guadalajara time.",
+        "Local SEO: meta tags, restaurant structured data with opening hours and a sitemap, on its own domain, crotona.mx.",
+        "A logo vectorized from the original, icons, a social sharing image and an identity guide.",
+      ],
+      resultLabel: "The result",
+      result: "Crotona has its own website again, with a direct path from search to WhatsApp. The project was paid at the regular price, with no promotions, so the source code belongs to the client.",
+      stackLabel: "Technologies",
+      linkLabel: "Visit crotona.mx",
+      images: {
+        desktop: "The crotona.mx home page on a computer",
+        mobile: "The crotona.mx home page on a phone",
       },
     },
   },
